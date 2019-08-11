@@ -4,6 +4,7 @@ const mainHTML = `<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>syum.ai</title>
   <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/">
   <style>
@@ -20,8 +21,8 @@ const mainHTML = `<!doctype html>
   </div>
   <h3>Routes</h3>
   <ul>
-    <li>/ascii</li>
-    <li>/image</li>
+    <li><a href="/ascii">/ascii</a></li>
+    <li><a href="/image">/image</a></li>
   </ul>
   <h3>Links</h3>
   <ul>
