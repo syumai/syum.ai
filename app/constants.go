@@ -1,5 +1,37 @@
 package app
 
+const mainHTML = `<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>syum.ai</title>
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/">
+  <style>
+.avatar-container, .avatar {
+  width: 180px;
+  height: 180px;
+}
+  </style>
+</head>
+<body>
+  <h2>syum.ai</h2>
+  <div class="avatar-container">
+	  <img src="/image" class="avatar">
+  </div>
+  <h3>Routes</h3>
+  <ul>
+    <li>/ascii</li>
+    <li>/image</li>
+  </ul>
+  <h3>Links</h3>
+  <ul>
+    <li><a href="https://twitter.com/__syumai">Twitter</a></li>
+    <li><a href="https://github.com/syumai">GitHub</a></li>
+    <li><a href="https://github.com/syumai/syum.ai">Repo</a></li>
+  </ul>
+</body>
+</html>`
+
 const syumaiASCIIArt = `
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
