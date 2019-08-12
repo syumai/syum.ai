@@ -8,7 +8,6 @@ import (
 
 func NewServer(port string) *http.Server {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", mainHandler)
 	mux.HandleFunc("/ascii", asciiHandler)
 	mux.HandleFunc("/image", imageHandler)
 	mux.HandleFunc("/favicon.ico", cachedImageHandler)
