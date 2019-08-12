@@ -1,4 +1,4 @@
-package app
+package server
 
 const mainHTML = `<!doctype html>
 <html>

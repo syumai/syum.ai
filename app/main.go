@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/syumai/syum.ai/app"
+	"github.com/syumai/syum.ai/server"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 	}
 	log.Printf("Listening on port %s", port)
 
-	s := app.NewServer(port)
+	s := server.NewServer(port)
 	if err := s.ListenAndServe(); err != nil {
 		log.Fatal(err)
 	}
