@@ -1,5 +1,7 @@
 runtime: go111
 
+main: ./cmd/app
+
 handlers:
 - url: /
   secure: always
