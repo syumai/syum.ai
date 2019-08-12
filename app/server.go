@@ -11,6 +11,7 @@ func NewServer(port string) *http.Server {
 	mux.HandleFunc("/", mainHandler)
 	mux.HandleFunc("/ascii", asciiHandler)
 	mux.HandleFunc("/image", imageHandler)
+	mux.HandleFunc("/favicon.ico", cachedImageHandler)
 	return &http.Server{
 		Addr:         fmt.Sprintf(":%s", port),
 		Handler:      mux,

@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/syumai/syumaigen"
 )
@@ -53,4 +54,10 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	if _, err := io.Copy(w, &buf); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func cachedImageHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "max-age=864000, public")
+	w.Header().Set("Expires", time.Now().AddDate(0, 0, 10).Format(time.RFC1123))
+	imageHandler(w, r)
 }
