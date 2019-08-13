@@ -3,7 +3,6 @@ package server
 import (
 	"bytes"
 	"fmt"
-	"image"
 	"image/png"
 	"io"
 	"log"
@@ -24,24 +23,18 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 
 func imageHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/png")
-	var (
-		img image.Image
-		err error
-	)
+	var cMap syumaigen.ColorMap
 	code := r.URL.Query().Get("code")
 	if code != "" {
-		img, err = syumaigen.GenerateImage(
-			syumaigen.Pattern,
-			syumaigen.GenerateColorMapByColorCode(code),
-			10,
-		)
+		cMap = syumaigen.GenerateColorMapByColorCode(code)
 	} else {
-		img, err = syumaigen.GenerateImage(
-			syumaigen.Pattern,
-			syumaigen.GenerateRandomColorMap(),
-			10,
-		)
+		cMap = syumaigen.GenerateRandomColorMap()
 	}
+	img, err := syumaigen.GenerateImage(
+		syumaigen.Pattern,
+		cMap,
+		10,
+	)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		w.WriteHeader(http.StatusInternalServerError)
