@@ -4,3 +4,5 @@ github.com/lucasb-eyer/go-colorful v1.0.2 h1:mCMFu6PgSozg9tDNMMK3g18oJBX7oYGrC09
 github.com/lucasb-eyer/go-colorful v1.0.2/go.mod h1:0MS4r+7BZKSJ5mw4/S5MPN+qHFF1fYclkSPilDOKW0s=
 github.com/syumai/syumaigen v0.1.0 h1:+RjoMO7QUwc6ul2ng+3J03LFeqXjp/KX9ngVA289NR0=
 github.com/syumai/syumaigen v0.1.0/go.mod h1:uRSUefUdCDgWdtevwoyvbvkQeB4RrM3Q+yI7s2AYMhU=
+github.com/syumai/syumaigen v0.2.0 h1:Qms2z4IE8ohS2LDltnR+ZCqPqIKX8T7K0HleqFMXayU=
+github.com/syumai/syumaigen v0.2.0/go.mod h1:uRSUefUdCDgWdtevwoyvbvkQeB4RrM3Q+yI7s2AYMhU=
