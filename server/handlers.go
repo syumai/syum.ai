@@ -28,7 +28,7 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	if code != "" {
 		cMap = syumaigen.GenerateColorMapByColorCode(code)
 	} else {
-		cMap = syumaigen.GenerateRandomColorMap()
+		cMap = syumaigen.DefaultColorMap
 	}
 	img, err := syumaigen.GenerateImage(
 		syumaigen.Pattern,
@@ -53,6 +53,10 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	if _, err := io.Copy(w, &buf); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func randomImageHandler(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, fmt.Sprintf("/image?code=%s", generateRandomColorCode()), http.StatusTemporaryRedirect)
 }
 
 func cachedImageHandler(w http.ResponseWriter, r *http.Request) {
