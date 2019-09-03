@@ -4,30 +4,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>syum.ai</title>
-  <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/">
-  <style>
-.avatar-container, .avatar {
-  width: 180px;
-  height: 180px;
-}
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-  <h2>syum.ai</h2>
-  <div class="avatar-container">
-	<img src="/image/random" class="avatar">
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        syum.ai
+      </h1>
+      <h2 class="subtitle">
+        syumai's web site
+      </h2>
+    </div>
   </div>
-  <h3>Contents</h3>
-  <ul>
-    <li><a href="/image/random">/image/random</a></li>
-    <li><a href="/image">/image</a></li>
-    <li><a href="/ascii">/ascii</a></li>
-  </ul>
-  <h3>Links</h3>
-  <ul>
-    <li><a href="https://twitter.com/__syumai">Twitter</a></li>
-    <li><a href="https://github.com/syumai">GitHub</a></li>
-    <li><a href="https://github.com/syumai/syum.ai">Repo</a></li>
-  </ul>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="content">
+      <div class="avatar-container">
+        <img src="" id="avatar">
+      </div>
+    </div>
+    <div class="content">
+      Share your random-generated syumai<br>
+      <a class="is-small" id="sharedUrl"></a>
+      <div>
+        <button id="reloadButton" class="button">Reload image</button>
+      </div>
+    </div>
+    <h2 class="subtitle">Profile</h2>
+    <ul class="content">
+      <li>Name: syumai</li>
+      <li>Job: Web App Developer</li>
+      <li>Location: Tokyo, Japan</li>
+      <li>Twitter: <a href="https://twitter.com/__syumai">@__syumai</a></li>
+      <li>GitHub: <a href="https://github.com/syumai">@syumai</a></li>
+      <li>Skills: Go, JavaScript, TypeScript, Ruby</li>
+    </ul>
+    <h2 class="subtitle">Contents of syum.ai</h2>
+    <ul class="content">
+      <li><a href="/image/random">/image/random</a></li>
+      <li><a href="/image">/image</a></li>
+      <li><a href="/ascii">/ascii</a></li>
+    </ul>
+    <h2 class="subtitle">Repo</h2>
+    <ul class="content">
+      <li><a href="https://github.com/syumai/syum.ai">https://github.com/syumai/syum.ai</a></li>
+    </ul>
+  </div>
+</section>
+<script src="./js/index.js" defer></script>
 </body>
 </html>

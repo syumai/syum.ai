@@ -9,6 +9,12 @@ handlers:
   static_files: public/index.html
   upload: public/index.html
 
+- url: /css
+  static_dir: public/css
+
+- url: /js
+  static_dir: public/js
+
 - url: /.*
   script: auto
   secure: always
