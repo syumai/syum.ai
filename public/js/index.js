@@ -23,6 +23,10 @@ async function main() {
     sharedUrlEl.textContent = sharedUrl;
   };
 
+  avatarEl.addEventListener('load', (e) => {
+    e.target.classList.remove('is-invisible');
+  });
+
   reloadButton.addEventListener('click', async (e) => {
     e.preventDefault();
     await setAvatarImage();
