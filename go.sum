@@ -1,8 +1,14 @@
+github.com/DATA-DOG/go-sqlmock v1.3.3 h1:CWUqKXe0s8A2z6qCgkP4Kru7wC11YoAnoupUKFDnH08=
 github.com/DATA-DOG/go-sqlmock v1.3.3/go.mod h1:f/Ixk793poVmq4qj/V1dPUg2JEAKC73Q5eFN3EC/SaM=
+github.com/google/go-cmp v0.3.1 h1:Xye71clBPdm5HgqGwUkwhbynsUJZhDbS20FvLhQ2izg=
 github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/lucasb-eyer/go-colorful v1.0.2 h1:mCMFu6PgSozg9tDNMMK3g18oJBX7oYGrC09mS6CXfO4=
 github.com/lucasb-eyer/go-colorful v1.0.2/go.mod h1:0MS4r+7BZKSJ5mw4/S5MPN+qHFF1fYclkSPilDOKW0s=
+github.com/lucasb-eyer/go-colorful v1.0.3 h1:QIbQXiugsb+q10B+MI+7DI1oQLdmnep86tWFlaaUAac=
+github.com/lucasb-eyer/go-colorful v1.0.3/go.mod h1:R4dSotOR9KMtayYi1e77YzuveK+i7ruzyGqttikkLy0=
 github.com/syumai/syumaigen v0.1.0 h1:+RjoMO7QUwc6ul2ng+3J03LFeqXjp/KX9ngVA289NR0=
 github.com/syumai/syumaigen v0.1.0/go.mod h1:uRSUefUdCDgWdtevwoyvbvkQeB4RrM3Q+yI7s2AYMhU=
 github.com/syumai/syumaigen v0.2.0 h1:Qms2z4IE8ohS2LDltnR+ZCqPqIKX8T7K0HleqFMXayU=
 github.com/syumai/syumaigen v0.2.0/go.mod h1:uRSUefUdCDgWdtevwoyvbvkQeB4RrM3Q+yI7s2AYMhU=
+github.com/syumai/syumaigen v0.2.1 h1:/lesqhp2efgXpzr51KfVwh/X1E4f+VtlB4j6WZZeqFs=
+github.com/syumai/syumaigen v0.2.1/go.mod h1:uRSUefUdCDgWdtevwoyvbvkQeB4RrM3Q+yI7s2AYMhU=
