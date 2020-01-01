@@ -7,4 +7,4 @@ dev:
 
 .PHONY: deploy
 deploy:
-	gcloud app deploy --project $(PROJECT_NAME)
+	GO111MODULE=on gcloud app deploy --project $(PROJECT_NAME)
