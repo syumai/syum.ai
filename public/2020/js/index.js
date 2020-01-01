@@ -32,7 +32,15 @@ function update(timestamp) {
 
 window.requestAnimationFrame(update);
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
+  // wait until all images are loaded
+  for (const img of document.images) {
+    if (img.complete) {
+      continue;
+    }
+    await new Promise(r => img.addEventListener('load', r));
+  }
+
   const mainContainer = document.getElementById('mainContainer');
   const sun = document.getElementById('sun');
   const ray = document.getElementById('ray');
