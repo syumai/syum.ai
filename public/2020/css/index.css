@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  background-color: #000000;
 }
 
 container.main {
@@ -46,7 +47,7 @@ container.main.rising::after {
 }
 
 container.main.dark {
-  background-color: #000000;
+  background-color: transparent;
   filter: brightness(0.4);
   transition: filter 2s, background-color 2s 1s;
 }
