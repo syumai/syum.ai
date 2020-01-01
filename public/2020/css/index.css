@@ -10,12 +10,49 @@ container.main {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 18.23%,
-      rgba(255, 255, 255, 0.67) 88.02%
-    ),
-    #66d1ff;
+}
+
+container.main::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 18.23%,
+    rgba(255, 255, 255, 0.67) 88.02%
+  );
+}
+
+container.main.day {
+  background-color: #66d1ff;
+  filter: brightness(1);
+  transition: filter 2s, background-color 2s 1s;
+}
+
+container.main.day::after {
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+container.main.rising {
+  background-color: #e23f00;
+  filter: brightness(0.8);
+  transition: filter 2s, background-color 2s 1s;
+}
+
+container.main.rising::after {
+  opacity: 0;
+}
+
+container.main.dark {
+  background-color: #000000;
+  filter: brightness(0.4);
+  transition: filter 2s, background-color 2s 1s;
+}
+
+container.main.dark::after {
+  opacity: 0;
 }
 
 /**
@@ -34,6 +71,11 @@ container.main {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 100;
+  transition: top 1s cubic-bezier(0.47, 0, 0.75, 0.72) 3s;
+}
+
+.overlay.hidden {
+  top: -155px;
 }
 
 .syumai-container {
@@ -142,8 +184,13 @@ container.main {
   align-items: center;
 }
 
-.sun-group-container .sun-container .sun {
+.sun-group-container .sun-container .sun.risen {
   margin-bottom: 100px;
+  transition: margin-bottom 3s ease-out;
+}
+
+.sun-group-container .sun-container .sun.rising {
+  margin-bottom: 30px;
 }
 
 .sun-group-container .ray-group-container {
@@ -165,6 +212,15 @@ container.main {
   height: 1400px;
   bottom: -560px;
   animation: rot 30s linear infinite;
+}
+
+.sun-group-container .ray-group-container .ray-container .ray.risen {
+  opacity: 1;
+  transition: opacity 3s 2s;
+}
+
+.sun-group-container .ray-group-container .ray-container .ray.rising {
+  opacity: 0;
 }
 
 @keyframes rot {

@@ -30,6 +30,25 @@ function update(timestamp) {
   window.requestAnimationFrame(update);
 }
 
-initializeFlyingObjects();
-
 window.requestAnimationFrame(update);
+
+window.addEventListener('DOMContentLoaded', () => {
+  const mainContainer = document.getElementById('mainContainer');
+  const sun = document.getElementById('sun');
+  const ray = document.getElementById('ray');
+  const overlay = document.getElementById('overlay');
+  mainContainer.classList.remove('dark');
+  mainContainer.classList.add('rising');
+  function mainContainerTransition() {
+    mainContainer.removeEventListener('transitionend', mainContainerTransition);
+    mainContainer.classList.remove('rising');
+    mainContainer.classList.add('day');
+    initializeFlyingObjects();
+  }
+  mainContainer.addEventListener('transitionend', mainContainerTransition);
+  sun.classList.remove('rising');
+  sun.classList.add('risen');
+  ray.classList.remove('rising');
+  ray.classList.add('risen');
+  overlay.classList.remove('hidden');
+});
