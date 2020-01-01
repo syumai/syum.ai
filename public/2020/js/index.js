@@ -32,21 +32,14 @@ function update(timestamp) {
 
 window.requestAnimationFrame(update);
 
-window.addEventListener('DOMContentLoaded', async () => {
-  // wait until all images are loaded
-  for (const img of document.images) {
-    if (img.complete) {
-      continue;
-    }
-    await new Promise(r => img.addEventListener('load', r));
-  }
-
+window.addEventListener('load', () => {
   const mainContainer = document.getElementById('mainContainer');
   const sun = document.getElementById('sun');
   const ray = document.getElementById('ray');
   const overlay = document.getElementById('overlay');
   mainContainer.classList.remove('dark');
   mainContainer.classList.add('rising');
+
   function mainContainerTransition() {
     mainContainer.removeEventListener('transitionend', mainContainerTransition);
     mainContainer.classList.remove('rising');
@@ -54,6 +47,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     initializeFlyingObjects();
   }
   mainContainer.addEventListener('transitionend', mainContainerTransition);
+
   sun.classList.remove('rising');
   sun.classList.add('risen');
   ray.classList.remove('rising');
