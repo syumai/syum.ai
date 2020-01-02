@@ -28,7 +28,7 @@ container.main::after {
 container.main.day {
   background-color: #66d1ff;
   filter: brightness(1);
-  transition: filter 2s, background-color 2s 1s;
+  transition: filter 2s 1.5s, background-color 2s 1.5s;
 }
 
 container.main.day::after {
@@ -72,11 +72,6 @@ container.main.dark::after {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 100;
-  transition: top 1s cubic-bezier(0.47, 0, 0.75, 0.72) 3s;
-}
-
-.overlay.hidden {
-  top: -155px;
 }
 
 .syumai-container {
@@ -89,6 +84,7 @@ container.main.dark::after {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  overflow: hidden;
   z-index: 10;
 }
 
@@ -191,7 +187,7 @@ container.main.dark::after {
 }
 
 .sun-group-container .sun-container .sun.rising {
-  margin-bottom: 30px;
+  margin-bottom: -150px;
 }
 
 .sun-group-container .ray-group-container {
@@ -217,7 +213,7 @@ container.main.dark::after {
 
 .sun-group-container .ray-group-container .ray-container .ray.risen {
   opacity: 1;
-  transition: opacity 3s 2s;
+  transition: opacity 3s 3s;
 }
 
 .sun-group-container .ray-group-container .ray-container .ray.rising {
