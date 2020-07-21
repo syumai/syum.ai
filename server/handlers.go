@@ -28,6 +28,9 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		cMap = syumaigen.DefaultColorMap
 	}
+	w.Header().Set("Cache-Control", "no-cache,no-store,must-revalidate,max-age=0")
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", time.Now().Format(time.RFC1123))
 	imgType := r.URL.Query().Get("type")
 	if imgType == "svg" {
 		writeSVG(w, cMap)
