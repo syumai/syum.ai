@@ -39,7 +39,7 @@ func writePNG(w http.ResponseWriter, cMap syumaigen.ColorMap) {
 }
 
 func writeSVG(w http.ResponseWriter, cMap syumaigen.ColorMap) {
-	w.Header().Set("Content-Type", "image/svg")
+	w.Header().Set("Content-Type", "image/svg+xml")
 	img, err := syumaigen.GenerateSVG(
 		syumaigen.Pattern,
 		cMap,
