@@ -1,12 +1,11 @@
 package server
 
 import (
-	"bytes"
 	"fmt"
-	"image/png"
 	"io"
 	"log"
 	"net/http"
+	"net/url"
 	"strings"
 	"time"
 
@@ -22,7 +21,6 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func imageHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "image/png")
 	var cMap syumaigen.ColorMap
 	code := r.URL.Query().Get("code")
 	if code != "" {
@@ -30,33 +28,22 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		cMap = syumaigen.DefaultColorMap
 	}
-	img, err := syumaigen.GenerateImage(
-		syumaigen.Pattern,
-		cMap,
-		10,
-	)
-	if err != nil {
-		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "Internal Server Error")
+	imgType := r.URL.Query().Get("type")
+	if imgType == "svg" {
+		writeSVG(w, cMap)
 		return
 	}
-	var buf bytes.Buffer
-	err = png.Encode(&buf, img)
-	if err != nil {
-		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "Internal Server Error")
-		return
-	}
-	w.WriteHeader(http.StatusOK)
-	if _, err := io.Copy(w, &buf); err != nil {
-		log.Fatal(err)
-	}
+	writePNG(w, cMap)
 }
 
 func randomImageHandler(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, fmt.Sprintf("/image?code=%s", generateRandomColorCode()), http.StatusTemporaryRedirect)
+	v := url.Values{}
+	v.Set("code", generateRandomColorCode())
+	imgType := r.URL.Query().Get("type")
+	if imgType != "" {
+		v.Set("type", imgType)
+	}
+	http.Redirect(w, r, fmt.Sprintf("/image?%s", v.Encode()), http.StatusTemporaryRedirect)
 }
 
 func cachedImageHandler(w http.ResponseWriter, r *http.Request) {
