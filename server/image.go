@@ -1,0 +1,58 @@
+package server
+
+import (
+	"bytes"
+	"fmt"
+	"image/png"
+	"io"
+	"log"
+	"net/http"
+
+	"github.com/syumai/syumaigen"
+)
+
+func writePNG(w http.ResponseWriter, cMap syumaigen.ColorMap) {
+	w.Header().Set("Content-Type", "image/png")
+	img, err := syumaigen.GenerateImage(
+		syumaigen.Pattern,
+		cMap,
+		10,
+	)
+	if err != nil {
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "Internal Server Error")
+		return
+	}
+	var buf bytes.Buffer
+	err = png.Encode(&buf, img)
+	if err != nil {
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "Internal Server Error")
+		return
+	}
+	w.WriteHeader(http.StatusOK)
+	if _, err := io.Copy(w, &buf); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func writeSVG(w http.ResponseWriter, cMap syumaigen.ColorMap) {
+	w.Header().Set("Content-Type", "image/svg")
+	img, err := syumaigen.GenerateSVG(
+		syumaigen.Pattern,
+		cMap,
+		10,
+	)
+	if err != nil {
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "Internal Server Error")
+		return
+	}
+	w.WriteHeader(http.StatusOK)
+	if _, err := io.Copy(w, img); err != nil {
+		log.Fatal(err)
+	}
+}
