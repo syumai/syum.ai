@@ -12,10 +12,25 @@ import (
 	"github.com/syumai/syumaigen"
 )
 
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.WriteHeader(http.StatusOK)
+	if _, err := io.Copy(w, strings.NewReader(indexHTML)); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	w.WriteHeader(http.StatusOK)
 	if _, err := io.Copy(w, strings.NewReader(SyumaiASCIIArt)); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func hostHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	if _, err := io.Copy(w, strings.NewReader(r.Host)); err != nil {
 		log.Fatal(err)
 	}
 }
