@@ -1,9 +1,0 @@
-dispatch:
-  - url: "syum.ai/*"
-    service: default
-
-  - url: "tw.syum.ai/*"
-    service: tw-syum-ai
-
-  - url: "gh.syum.ai/*"
-    service: gh-syum-ai
