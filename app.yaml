@@ -3,12 +3,6 @@ runtime: go113
 main: ./cmd/app
 
 handlers:
-- url: /
-  secure: always
-  redirect_http_response_code: 301
-  static_files: public/index.html
-  upload: public/index.html
-
 - url: /2020/?
   secure: always
   redirect_http_response_code: 301
