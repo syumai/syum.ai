@@ -46,6 +46,7 @@ const indexHTML = `<!DOCTYPE html>
           <li>GitHub: <a href="https://github.com/syumai">@syumai</a></li>
           <li>Mastodon: <a href="https://mstdn.jp/@_syumai">@_syumai@mstdn.jp</a></li>
           <li>Blog: <a href="https://syumai.hateblo.jp/">syumai.hateblo.jp</a></li>
+          <li>Articles: <a href="https://zenn.dev/syumai">zenn.dev/syumai</a></li>
         </ul>
         <h2 class="title is-4">Works</h2>
 
