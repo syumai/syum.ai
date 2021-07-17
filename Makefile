@@ -1,4 +1,5 @@
 PROJECT_NAME="syum-ai"
+GOOGLE_ACCOUNT_NAME="syumai@gmail.com"
 PORT?=8080
 
 .PHONY: dev
@@ -7,4 +8,4 @@ dev:
 
 .PHONY: deploy
 deploy:
-	GO111MODULE=on gcloud app deploy --project $(PROJECT_NAME)
+	GO111MODULE=on gcloud app deploy --project $(PROJECT_NAME) --account $(GOOGLE_ACCOUNT_NAME)
