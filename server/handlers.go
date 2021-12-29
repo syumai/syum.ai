@@ -1,6 +1,8 @@
 package server
 
 import (
+	"bytes"
+	_ "embed"
 	"fmt"
 	"io"
 	"log"
@@ -12,10 +14,13 @@ import (
 	"github.com/syumai/syumaigen"
 )
 
+//go:embed static/index.html
+var indexHTML []byte
+
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.WriteHeader(http.StatusOK)
-	if _, err := io.Copy(w, strings.NewReader(indexHTML)); err != nil {
+	if _, err := io.Copy(w, bytes.NewReader(indexHTML)); err != nil {
 		log.Fatal(err)
 	}
 }

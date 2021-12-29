@@ -34,3 +34,6 @@ automatic_scaling:
   max_idle_instances: 1
   min_pending_latency: 3000ms
   max_pending_latency: automatic
+
+env_variables:
+  HOST: syum.ai

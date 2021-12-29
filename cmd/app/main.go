@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -12,9 +13,15 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
-	log.Printf("Listening on port %s", port)
 
-	s := server.NewServer(port)
+	host := os.Getenv("HOST")
+	if host == "" {
+		host = fmt.Sprintf("localhost:%s", port)
+	}
+
+	log.Printf("Listening on port: %s, host: %s", port, host)
+
+	s := server.NewServer(port, host)
 	if err := s.ListenAndServe(); err != nil {
 		log.Fatal(err)
 	}

@@ -8,10 +8,10 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func NewServer(port string) *http.Server {
+func NewServer(port, host string) *http.Server {
 	r := mux.NewRouter()
 	setupRedirectHandlers(r)
-	mainRouter := r.Host("syum.ai").Subrouter()
+	mainRouter := r.Host(host).Subrouter()
 	mainRouter.HandleFunc("/", indexHandler)
 	mainRouter.HandleFunc("/ascii", asciiHandler)
 	mainRouter.HandleFunc("/host", hostHandler)
