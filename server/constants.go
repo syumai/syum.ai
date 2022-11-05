@@ -44,6 +44,7 @@ const indexHTML = `<!DOCTYPE html>
           <li>Skills: Go, JavaScript, TypeScript, Ruby</li>
           <li>Twitter: <a href="https://twitter.com/__syumai">@__syumai</a></li>
           <li>GitHub: <a href="https://github.com/syumai">@syumai</a></li>
+          <li>Mastodon: <a href="https://mstdn.jp/_syumai">@_syumai</a></li>
           <li>Blog: <a href="https://syumai.hateblo.jp/">syumai.hateblo.jp</a></li>
         </ul>
         <h2 class="title is-4">Works</h2>

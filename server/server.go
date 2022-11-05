@@ -30,6 +30,7 @@ func setupRedirectHandlers(r *mux.Router) {
 	redirectMap := map[string]string{
 		"tw.syum.ai": "https://twitter.com/__syumai",
 		"gh.syum.ai": "https://github.com/syumai",
+		"md.syum.ai": "https://mstdn.jp/@_syumai",
 	}
 	for host, url := range redirectMap {
 		r.Handle("/", http.RedirectHandler(url, http.StatusMovedPermanently)).
