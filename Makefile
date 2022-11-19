@@ -9,4 +9,4 @@ build:
 
 .PHONY: publish
 publish:
-	wrangler publish --env production
+	wrangler publish
