@@ -2,7 +2,6 @@ package server
 
 import (
 	"embed"
-	_ "embed"
 	"fmt"
 	"io"
 	"io/fs"
@@ -14,8 +13,20 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gorilla/mux"
 	"github.com/syumai/syumaigen"
 )
+
+func NewHandler() http.Handler {
+	r := mux.NewRouter()
+	r.HandleFunc("/ascii", asciiHandler)
+	r.HandleFunc("/host", hostHandler)
+	r.HandleFunc("/image", imageHandler)
+	r.HandleFunc("/image/random", randomImageHandler)
+	r.HandleFunc("/favicon.ico", cachedImageHandler)
+	r.PathPrefix("/").HandlerFunc(assetsHandler)
+	return r
+}
 
 //go:embed static
 var assetsFS embed.FS
