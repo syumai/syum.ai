@@ -1,11 +1,12 @@
-PROJECT_NAME="syum-ai"
-GOOGLE_ACCOUNT_NAME="syumai@gmail.com"
-PORT?=8080
-
 .PHONY: dev
 dev:
-	dev_appserver.py app.yaml --port=$(PORT)
+	wrangler dev
 
-.PHONY: deploy
-deploy:
-	GO111MODULE=on gcloud app deploy --project $(PROJECT_NAME) --account $(GOOGLE_ACCOUNT_NAME)
+.PHONY: build
+build:
+	mkdir -p dist
+	GOOS=js GOARCH=wasm go build -o ./dist/app.wasm .
+
+.PHONY: publish
+publish:
+	wrangler publish --env production

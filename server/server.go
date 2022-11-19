@@ -1,39 +1,18 @@
 package server
 
 import (
-	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/gorilla/mux"
 )
 
-func NewServer(port, host string) *http.Server {
+func NewHandler() http.Handler {
 	r := mux.NewRouter()
-	setupRedirectHandlers(r)
-	mainRouter := r.Host(host).Subrouter()
-	mainRouter.HandleFunc("/", indexHandler)
-	mainRouter.HandleFunc("/ascii", asciiHandler)
-	mainRouter.HandleFunc("/host", hostHandler)
-	mainRouter.HandleFunc("/image", imageHandler)
-	mainRouter.HandleFunc("/image/random", randomImageHandler)
-	mainRouter.HandleFunc("/favicon.ico", cachedImageHandler)
-	return &http.Server{
-		Addr:         fmt.Sprintf(":%s", port),
-		Handler:      r,
-		WriteTimeout: 15 * time.Second,
-		ReadTimeout:  15 * time.Second,
-	}
-}
-
-func setupRedirectHandlers(r *mux.Router) {
-	redirectMap := map[string]string{
-		"tw.syum.ai": "https://twitter.com/__syumai",
-		"gh.syum.ai": "https://github.com/syumai",
-		"md.syum.ai": "https://mstdn.jp/@_syumai",
-	}
-	for host, url := range redirectMap {
-		r.Handle("/", http.RedirectHandler(url, http.StatusMovedPermanently)).
-			Host(host)
-	}
+	r.HandleFunc("/ascii", asciiHandler)
+	r.HandleFunc("/host", hostHandler)
+	r.HandleFunc("/image", imageHandler)
+	r.HandleFunc("/image/random", randomImageHandler)
+	r.HandleFunc("/favicon.ico", cachedImageHandler)
+	r.PathPrefix("/").HandlerFunc(assetsHandler)
+	return r
 }
