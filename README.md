@@ -1,7 +1,7 @@
 # syum.ai
 
 * A web app hosted on [syum.ai](https://syum.ai) .
-* This app is hosted on Google App Engine.
+* This app is hosted on Cloudflare Workers.
 
 ## Routes
 
