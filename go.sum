@@ -10,5 +10,5 @@ github.com/lucasb-eyer/go-colorful v1.0.3 h1:QIbQXiugsb+q10B+MI+7DI1oQLdmnep86tW
 github.com/lucasb-eyer/go-colorful v1.0.3/go.mod h1:R4dSotOR9KMtayYi1e77YzuveK+i7ruzyGqttikkLy0=
 github.com/syumai/syumaigen v0.3.0 h1:+dxvmtOaTYprDkNEf2eM4ZebaBjrrTX5JgvJlKEzJlI=
 github.com/syumai/syumaigen v0.3.0/go.mod h1:wg80a2V/w9YWUpOdaYJGeEXP7frE9CkEnsHkeqzb28I=
-github.com/syumai/workers v0.7.0 h1:Of06Owg1KuEcMPliEEke6OSNYMCwi9NAHK6BDoOK0KA=
-github.com/syumai/workers v0.7.0/go.mod h1:alXIDhTyeTwSzh0ZgQ3cb9HQPyyYfIejupE4Z3efr14=
+github.com/syumai/workers v0.8.0 h1:+7QD5VUuJo0xbDYNBSJyUZSlFAhB9mpOnfRrUKNswTQ=
+github.com/syumai/workers v0.8.0/go.mod h1:alXIDhTyeTwSzh0ZgQ3cb9HQPyyYfIejupE4Z3efr14=

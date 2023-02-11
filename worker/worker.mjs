@@ -4,22 +4,14 @@ import mod from "../dist/app.wasm";
 
 const go = new Go();
 
-const load = WebAssembly.instantiate(mod, go.importObject).then((instance) => {
+export default {
+  async fetch(req, env, ctx) {
+    const readyPromise = new Promise((resolve) => {
+      globalThis.ready = resolve;
+    });
+    const instance = await WebAssembly.instantiate(mod, go.importObject);
     go.run(instance);
-    return instance;
-});
-
-const readyPromise = new Promise((resolve) => {
-    globalThis.ready = resolve;
-});
-
-async function processRequest(event) {
-    const req = event.request;
-    await load;
     await readyPromise;
-    return handleRequest(req);
-}
-
-addEventListener("fetch", (event) => {
-    event.respondWith(processRequest(event));
-})
+    return handleRequest(req, { env, ctx });
+  },
+};
