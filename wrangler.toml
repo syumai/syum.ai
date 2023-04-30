@@ -1,6 +1,6 @@
 name = "syum-ai"
 compatibility_date = "2022-11-19"
-main = "./worker/worker.mjs"
+main = "./build/worker.mjs"
 compatibility_flags = [
     "streams_enable_constructors"
 ]
