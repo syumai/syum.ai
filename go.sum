@@ -12,3 +12,5 @@ github.com/syumai/syumaigen v0.3.0 h1:+dxvmtOaTYprDkNEf2eM4ZebaBjrrTX5JgvJlKEzJl
 github.com/syumai/syumaigen v0.3.0/go.mod h1:wg80a2V/w9YWUpOdaYJGeEXP7frE9CkEnsHkeqzb28I=
 github.com/syumai/workers v0.8.0 h1:+7QD5VUuJo0xbDYNBSJyUZSlFAhB9mpOnfRrUKNswTQ=
 github.com/syumai/workers v0.8.0/go.mod h1:alXIDhTyeTwSzh0ZgQ3cb9HQPyyYfIejupE4Z3efr14=
+github.com/syumai/workers v0.15.0 h1:SDOCkLIGQ8PXx/mM7pjZLvu3xgxi2nYHuXgXLMO5AmM=
+github.com/syumai/workers v0.15.0/go.mod h1:alXIDhTyeTwSzh0ZgQ3cb9HQPyyYfIejupE4Z3efr14=
