@@ -1,12 +1,12 @@
 module github.com/syumai/syum.ai
 
-go 1.19
+go 1.21.3
 
 require (
-	github.com/gorilla/mux v1.8.0
-	github.com/lucasb-eyer/go-colorful v1.0.3
-	github.com/syumai/syumaigen v0.3.0
-	github.com/syumai/workers v0.16.1-0.20230527014946-feafcd580a5b
+	github.com/gorilla/mux v1.8.1
+	github.com/lucasb-eyer/go-colorful v1.2.0
+	github.com/syumai/syumaigen v0.5.0
+	github.com/syumai/workers v0.20.0
 )
 
-require github.com/ajstarks/svgo v0.0.0-20200320125537-f189e35d30ca // indirect
+require github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b // indirect
