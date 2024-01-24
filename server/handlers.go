@@ -2,6 +2,7 @@ package server
 
 import (
 	"embed"
+	"errors"
 	"fmt"
 	"io"
 	"io/fs"
@@ -9,6 +10,7 @@ import (
 	"mime"
 	"net/http"
 	"net/url"
+	"os"
 	"path/filepath"
 	"strings"
 	"time"
@@ -87,10 +89,16 @@ func assetsHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Expires", time.Now().Add(time.Hour).Format(time.RFC1123))
 	path := "static" + strings.TrimSuffix(r.URL.Path, "/")
 	f := openAssetsFile(w, path)
+	if f == nil {
+		return
+	}
 	stat, _ := f.Stat() // this always succeeds
 	if stat.IsDir() {
 		path = filepath.Join(path, "index.html")
 		f = openAssetsFile(w, path)
+		if f == nil {
+			return
+		}
 	}
 	ext := filepath.Ext(path)
 	if ext != "" {
@@ -104,6 +112,11 @@ func assetsHandler(w http.ResponseWriter, r *http.Request) {
 func openAssetsFile(w http.ResponseWriter, path string) fs.File {
 	f, err := assetsFS.Open(path)
 	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			w.WriteHeader(http.StatusNotFound)
+			w.Write([]byte("not found"))
+			return nil
+		}
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 		log.Fatalf("assets handler fs open: %v", err)
