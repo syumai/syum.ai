@@ -16,6 +16,8 @@ github.com/syumai/syumaigen v0.5.0 h1:AqG8MWghgEUbTOZNmoDdl+UUQiNaPhcqOBXzYO5+DT
 github.com/syumai/syumaigen v0.5.0/go.mod h1:r0j5b9KbTych8Gf3FnTRVr/GK/nPQb10AXgUjQaFB/A=
 github.com/syumai/workers v0.23.1 h1:QWz4NUnCxqM9JDVxTCnOp5ScyR+8xBWOy1sj15/hjvw=
 github.com/syumai/workers v0.23.1/go.mod h1:ZnqmdiHNBrbxOLrZ/HJ5jzHy6af9cmiNZk10R9NrIEA=
+github.com/syumai/workers v0.24.0 h1:ByO3n+AoZrd8qMfwbMm9mGKyEdQEGuE10FJ9kE6h3f4=
+github.com/syumai/workers v0.24.0/go.mod h1:ZnqmdiHNBrbxOLrZ/HJ5jzHy6af9cmiNZk10R9NrIEA=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=

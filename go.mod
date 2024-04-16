@@ -6,7 +6,7 @@ require (
 	github.com/gorilla/mux v1.8.1
 	github.com/lucasb-eyer/go-colorful v1.2.0
 	github.com/syumai/syumaigen v0.5.0
-	github.com/syumai/workers v0.23.1
+	github.com/syumai/workers v0.24.0
 )
 
 require github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b // indirect
