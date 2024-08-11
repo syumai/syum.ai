@@ -1,0 +1,24 @@
+package indexpage
+
+type CardItem struct {
+  URL string
+  Title string
+  Description string
+}
+
+templ card(headerTitle string, items []*CardItem) {
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">{ headerTitle }</p>
+    </header>
+    <div class="card-content">
+      <ul class="content">
+        for _, item := range items {
+          <li>
+            <a href={ templ.URL(item.URL) } target="_blank">{ item.Title }</a>: { item.Description }
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+}

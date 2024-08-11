@@ -15,7 +15,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/a-h/templ"
 	"github.com/gorilla/mux"
+	"github.com/syumai/syum.ai/server/pages/indexpage"
 	"github.com/syumai/syumaigen"
 )
 
@@ -26,6 +28,7 @@ func NewHandler() http.Handler {
 	r.HandleFunc("/image", imageHandler)
 	r.HandleFunc("/image/random", randomImageHandler)
 	r.HandleFunc("/favicon.ico", cachedImageHandler)
+	r.Handle("/", templ.Handler(indexpage.Index()))
 	r.PathPrefix("/").HandlerFunc(assetsHandler)
 	return r
 }
