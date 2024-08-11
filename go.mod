@@ -1,6 +1,6 @@
 module github.com/syumai/syum.ai
 
-go 1.21.3
+go 1.22.6
 
 require (
 	github.com/gorilla/mux v1.8.1
@@ -9,4 +9,7 @@ require (
 	github.com/syumai/workers v0.26.2
 )
 
-require github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b // indirect
+require (
+	github.com/a-h/templ v0.2.747 // indirect
+	github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b // indirect
+)
