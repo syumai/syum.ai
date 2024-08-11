@@ -1,0 +1,31 @@
+package indexpage
+
+templ Index() {
+  <!doctype html>
+  <html>
+    @head()
+    <body>
+      <section class="hero is-primary is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">syum.ai</h1>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          @avatar()
+          @profile()
+          @works()
+          <h2 class="title is-4">Repo</h2>
+          <ul class="content">
+            <li>
+              <a href="https://github.com/syumai/syum.ai">syum.ai</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <script src="./js/index.js" defer></script>
+    </body>
+  </html>
+}
