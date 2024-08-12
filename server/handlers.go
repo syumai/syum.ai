@@ -24,7 +24,6 @@ import (
 func NewHandler() http.Handler {
 	r := mux.NewRouter()
 	r.HandleFunc("/ascii", asciiHandler)
-	r.HandleFunc("/host", hostHandler)
 	r.HandleFunc("/image", imageHandler)
 	r.HandleFunc("/image/random", randomImageHandler)
 	r.HandleFunc("/favicon.ico", cachedImageHandler)
@@ -41,13 +40,6 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	if _, err := io.Copy(w, strings.NewReader(SyumaiASCIIArt)); err != nil {
-		log.Fatal(err)
-	}
-}
-
-func hostHandler(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	if _, err := io.Copy(w, strings.NewReader(r.Host)); err != nil {
 		log.Fatal(err)
 	}
 }
