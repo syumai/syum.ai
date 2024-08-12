@@ -4,6 +4,7 @@ type CardItem struct {
   URL string
   Title string
   Description string
+  OpenInCurrentTab bool
 }
 
 templ card(headerTitle string, items []*CardItem) {
@@ -15,7 +16,12 @@ templ card(headerTitle string, items []*CardItem) {
       <ul class="content">
         for _, item := range items {
           <li>
-            <a href={ templ.URL(item.URL) } target="_blank">{ item.Title }</a>: { item.Description }
+            <a
+              href={ templ.URL(item.URL) }
+              if !item.OpenInCurrentTab {
+                target="_blank"
+              }
+            >{ item.Title }</a>: { item.Description }
           </li>
         }
       </ul>

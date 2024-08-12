@@ -123,9 +123,10 @@ func works() templ.Component {
 				Description: "Go Playground with coedit mode",
 			},
 			{
-				URL:         "/2020",
-				Title:       "2020",
-				Description: "New year content of 2020",
+				URL:              "/2020",
+				Title:            "2020",
+				Description:      "New year content of 2020",
+				OpenInCurrentTab: true,
 			},
 		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
