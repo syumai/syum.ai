@@ -13,7 +13,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"time"
 
 	"github.com/a-h/templ"
 	"github.com/gorilla/mux"
@@ -24,7 +23,7 @@ import (
 func NewHandler() http.Handler {
 	r := mux.NewRouter()
 	r.HandleFunc("/ascii", asciiHandler)
-	r.HandleFunc("/image", imageHandler)
+	r.HandleFunc("/image", nocacheImageHandler)
 	r.HandleFunc("/image/random", randomImageHandler)
 	r.HandleFunc("/favicon.ico", cachedImageHandler)
 	r.Handle("/", templ.Handler(indexpage.Index()))
@@ -52,9 +51,6 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		cMap = syumaigen.DefaultColorMap
 	}
-	w.Header().Set("Cache-Control", "no-cache,no-store,must-revalidate,max-age=0")
-	w.Header().Set("Pragma", "no-cache")
-	w.Header().Set("Expires", time.Now().Format(time.RFC1123))
 	imgType := r.URL.Query().Get("type")
 	if imgType == "svg" {
 		writeSVG(w, cMap)
@@ -73,15 +69,18 @@ func randomImageHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, fmt.Sprintf("/image?%s", v.Encode()), http.StatusTemporaryRedirect)
 }
 
+func nocacheImageHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-store,max-age=0")
+	imageHandler(w, r)
+}
+
 func cachedImageHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Cache-Control", "max-age=864000, public")
-	w.Header().Set("Expires", time.Now().AddDate(0, 0, 10).Format(time.RFC1123))
+	w.Header().Set("Cache-Control", "max-age=864000")
 	imageHandler(w, r)
 }
 
 func assetsHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Cache-Control", "max-age=3600, public")
-	w.Header().Set("Expires", time.Now().Add(time.Hour).Format(time.RFC1123))
+	w.Header().Set("Cache-Control", "max-age=3600")
 	path := "static" + strings.TrimSuffix(r.URL.Path, "/")
 	f := openAssetsFile(w, path)
 	if f == nil {
