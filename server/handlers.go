@@ -1,17 +1,11 @@
 package server
 
 import (
-	"embed"
-	"errors"
 	"fmt"
 	"io"
-	"io/fs"
 	"log"
-	"mime"
 	"net/http"
 	"net/url"
-	"os"
-	"path/filepath"
 	"strings"
 
 	"github.com/a-h/templ"
@@ -27,12 +21,8 @@ func NewHandler() http.Handler {
 	r.HandleFunc("/image/random", randomImageHandler)
 	r.HandleFunc("/favicon.ico", cachedImageHandler)
 	r.Handle("/", templ.Handler(indexpage.Index()))
-	r.PathPrefix("/").HandlerFunc(assetsHandler)
 	return r
 }
-
-//go:embed static
-var assetsFS embed.FS
 
 func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
@@ -77,43 +67,4 @@ func nocacheImageHandler(w http.ResponseWriter, r *http.Request) {
 func cachedImageHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Cache-Control", "max-age=864000")
 	imageHandler(w, r)
-}
-
-func assetsHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Cache-Control", "max-age=3600")
-	path := "static" + strings.TrimSuffix(r.URL.Path, "/")
-	f := openAssetsFile(w, path)
-	if f == nil {
-		return
-	}
-	stat, _ := f.Stat() // this always succeeds
-	if stat.IsDir() {
-		path = filepath.Join(path, "index.html")
-		f = openAssetsFile(w, path)
-		if f == nil {
-			return
-		}
-	}
-	ext := filepath.Ext(path)
-	if ext != "" {
-		w.Header().Set("Content-Type", mime.TypeByExtension(ext))
-	}
-	if _, err := io.Copy(w, f); err != nil {
-		log.Fatalf("assets file copy: %v", err)
-	}
-}
-
-func openAssetsFile(w http.ResponseWriter, path string) fs.File {
-	f, err := assetsFS.Open(path)
-	if err != nil {
-		if errors.Is(err, os.ErrNotExist) {
-			w.WriteHeader(http.StatusNotFound)
-			w.Write([]byte("not found"))
-			return nil
-		}
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(err.Error()))
-		log.Fatalf("assets handler fs open: %v", err)
-	}
-	return f
 }
