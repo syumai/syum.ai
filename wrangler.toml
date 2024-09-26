@@ -7,3 +7,4 @@ command = "make build"
 
 [assets]
 directory = "./public"
+html_handling = "drop-trailing-slash"
