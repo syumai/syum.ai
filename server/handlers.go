@@ -9,19 +9,18 @@ import (
 	"strings"
 
 	"github.com/a-h/templ"
-	"github.com/gorilla/mux"
 	"github.com/syumai/syum.ai/server/pages/indexpage"
 	"github.com/syumai/syumaigen"
 )
 
 func NewHandler() http.Handler {
-	r := mux.NewRouter()
-	r.HandleFunc("/ascii", asciiHandler)
-	r.HandleFunc("/image", nocacheImageHandler)
-	r.HandleFunc("/image/random", randomImageHandler)
-	r.HandleFunc("/favicon.ico", cachedImageHandler)
-	r.Handle("/", templ.Handler(indexpage.Index()))
-	return r
+	mux := http.NewServeMux()
+	mux.HandleFunc("/ascii", asciiHandler)
+	mux.HandleFunc("/image", nocacheImageHandler)
+	mux.HandleFunc("/image/random", randomImageHandler)
+	mux.HandleFunc("/favicon.ico", cachedImageHandler)
+	mux.Handle("/", templ.Handler(indexpage.Index()))
+	return mux
 }
 
 func asciiHandler(w http.ResponseWriter, r *http.Request) {
