@@ -4,6 +4,31 @@ templ works() {
   <h2 class="title is-4">Works</h2>
 
   <div class="columns">
+    <div class="column">
+      @card("Go", []*CardItem{
+        {
+          URL: "https://github.com/syumai/workers",
+          Title: "workers",
+          Description: "Go package to run an HTTP server on Cloudflare Workers.",
+        },
+        {
+          URL: "https://github.com/syumai/protocat",
+          Title: "protocat",
+          Description: "A CLI tool to concatenate multiple proto files",
+        },
+        {
+          URL: "https://github.com/syumai/go-hyperscript",
+          Title: "go-hyperscript",
+          Description: "Simple Virtual DOM implemented in Go + WebAssembly",
+        },
+        {
+          URL: "https://github.com/syumai/syumaigen",
+          Title: "syumaigen",
+          Description: "CLI tool to generate syumai's avatar image",
+        },
+      })
+    </div>
+
     <div class="column is-4">
       @card("Deno (TypeScript)", []*CardItem{
         {
@@ -35,31 +60,6 @@ templ works() {
           URL: "https://github.com/syumai/trollo",
           Title: "trollo",
           Description: "Simple Trello like kanban app implemented in Vue + Vuex",
-        },
-      })
-    </div>
-
-    <div class="column">
-      @card("Go", []*CardItem{
-        {
-          URL: "https://github.com/syumai/workers",
-          Title: "workers",
-          Description: "Go package to run an HTTP server on Cloudflare Workers.",
-        },
-        {
-          URL: "https://github.com/syumai/protocat",
-          Title: "protocat",
-          Description: "A CLI tool to concatenate multiple proto files",
-        },
-        {
-          URL: "https://github.com/syumai/go-hyperscript",
-          Title: "go-hyperscript",
-          Description: "Simple Virtual DOM implemented in Go + WebAssembly",
-        },
-        {
-          URL: "https://github.com/syumai/syumaigen",
-          Title: "syumaigen",
-          Description: "CLI tool to generate syumai's avatar image",
         },
       })
     </div>
