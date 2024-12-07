@@ -68,14 +68,14 @@ func profile() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</a></li><li>Bluesky: <a href=\"https://bsky.app/profile/syumai.bsky.social\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</a></li><li>Bluesky: <a href=\"https://bsky.app/profile/syum.ai\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var5 string
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs("@syumai.bsky.social")
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs("@syum.ai")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `server/pages/indexpage/profile.templ`, Line: 14, Col: 92}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `server/pages/indexpage/profile.templ`, Line: 14, Col: 70}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
