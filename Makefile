@@ -13,7 +13,7 @@ watch:
 .PHONY: build
 build:
 	go run github.com/syumai/workers/cmd/workers-assets-gen@v0.23.1
-	tinygo build -panic=trap -o ./build/app.wasm -target wasm -no-debug ./...
+	tinygo build -o ./build/app.wasm -target wasm -panic=trap -no-debug -gc=leaking -opt=2 ./...
 
 .PHONY: deploy
 deploy:
