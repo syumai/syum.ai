@@ -1,77 +1,32 @@
 package indexpage
 
+const description = "The profile page of syumai, a web application developer in Tokyo, Japan."
+
 templ Head(colorCode string) {
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>syum.ai</title>
     <link rel="me" href="https://mstdn.jp/@_syumai" />
     if colorCode != "" {
-      <meta
-        property="og:image"
-        content={"https://syum.ai/og?colorCode=" + colorCode } />
+      <meta property="og:image" content={"https://syum.ai/og?colorCode=" + colorCode} />
+      <meta name="twitter:image" content={"https://syum.ai/og?colorCode=" + colorCode} />
     } else {
-      <meta
-        property="og:image"
-        content="https://syum.ai/og" />
+      <meta property="og:image" content="https://syum.ai/og" />
+      <meta name="twitter:image" content="https://syum.ai/og" />
     }
-    <meta property="og:description" content="The profile page of syumai, a web application developer in Tokyo, Japan." />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="syum.ai" />
+    <meta property="og:description" content={description} />
     <meta property="og:title" content="syum.ai" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="An avatar image of syumai" />
+    <meta property="og:image:site_name" content="syum.ai" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script>
-async function main() {
-  const avatarEl = document.getElementById('avatar');
-  const shareButton = document.getElementById('shareButton');
-  const reloadButton = document.getElementById('reloadButton');
-
-  // URLからcolorCodeパラメータを取得する
-  let initialColorCode = new URLSearchParams(window.location.search).get('colorCode');
-  let avatarDataUrl = '';
-  let sharedUrl;
-
-  const setAvatarImage = async () => {
-    try {
-      let url = '/image/random';
-      if (initialColorCode) {
-        url = `/image?code=${initialColorCode}`;
-        initialColorCode = '';
-      }
-      const result = await fetch(url);
-      if (avatarDataUrl !== '') {
-        URL.revokeObjectURL(avatarDataUrl);
-      }
-      avatarDataUrl = URL.createObjectURL(await result.blob());
-      sharedUrl = result.url;
-    } catch (e) {
-      console.error(e);
-      return;
-    }
-    avatarEl.src = avatarDataUrl;
-  };
-
-  avatarEl.addEventListener('load', (e) => {
-    e.target.classList.remove('is-invisible');
-  });
-
-  reloadButton.addEventListener('click', async (e) => {
-    await setAvatarImage();
-  });
-
-  if (window.navigator.share) {
-    shareButton.addEventListener('click', (e) => {
-      colorCode = URL.parse(sharedUrl).searchParams.get('code');
-      window.navigator.share({
-        title: 'syum.ai',
-        text: '#わたしのシュウマイ',
-        url: `https://syum.ai?colorCode=${colorCode}`,
-      });
-    })
-  }
-
-  await setAvatarImage();
-}
-
-window.addEventListener('DOMContentLoaded', main);
-    </script>
   </head>
 }

@@ -26,13 +26,19 @@ func NewHandler() http.Handler {
 	mux.HandleFunc("/og", ogImageHandler)
 	mux.HandleFunc("/image/random", randomImageHandler)
 	mux.HandleFunc("/favicon.ico", cachedImageHandler)
+	mux.HandleFunc("/robots.txt", robotsHandler)
 	mux.HandleFunc("/", indexHandler)
 	return mux
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	colorCode := r.URL.Query().Get("colorCode")
 	indexpage.Index(colorCode).Render(r.Context(), w)
+}
+
+func robotsHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusNotFound)
 }
 
 func asciiHandler(w http.ResponseWriter, r *http.Request) {
