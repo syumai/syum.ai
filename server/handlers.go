@@ -55,8 +55,9 @@ func ogImageHandler(w http.ResponseWriter, r *http.Request) {
 	drawOGAvatar(baseImg, colorCode)
 	drawOGLabel(baseImg)
 
+	w.Header().Set("Content-Type", "image/png")
 	if err := png.Encode(w, baseImg); err != nil {
-		log.Fatalf("画像エンコードエラー: %v", err)
+		log.Fatal(err)
 	}
 }
 
