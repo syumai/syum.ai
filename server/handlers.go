@@ -2,25 +2,37 @@ package server
 
 import (
 	"fmt"
+	"image"
+	"image/color"
+	"image/png"
 	"io"
 	"log"
 	"net/http"
 	"net/url"
 	"strings"
 
-	"github.com/a-h/templ"
 	"github.com/syumai/syum.ai/server/pages/indexpage"
 	"github.com/syumai/syumaigen"
+	"golang.org/x/image/draw"
+	"golang.org/x/image/font"
+	"golang.org/x/image/font/basicfont"
+	"golang.org/x/image/math/fixed"
 )
 
 func NewHandler() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/ascii", asciiHandler)
 	mux.HandleFunc("/image", nocacheImageHandler)
+	mux.HandleFunc("/og", ogImageHandler)
 	mux.HandleFunc("/image/random", randomImageHandler)
 	mux.HandleFunc("/favicon.ico", cachedImageHandler)
-	mux.Handle("/", templ.Handler(indexpage.Index()))
+	mux.HandleFunc("/", indexHandler)
 	return mux
+}
+
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	colorCode := r.URL.Query().Get("colorCode")
+	indexpage.Index(colorCode).Render(r.Context(), w)
 }
 
 func asciiHandler(w http.ResponseWriter, r *http.Request) {
@@ -30,6 +42,76 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	if _, err := io.Copy(w, strings.NewReader(SyumaiASCIIArt)); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func ogImageHandler(w http.ResponseWriter, r *http.Request) {
+	const width, height = 1200, 630
+
+	baseImg := image.NewRGBA(image.Rect(0, 0, width, height))
+	bgColor := color.RGBA{R: 255, G: 255, B: 255, A: 255}
+	draw.Draw(baseImg, baseImg.Bounds(), &image.Uniform{C: bgColor}, image.Point{}, draw.Src)
+
+	colorCode := r.URL.Query().Get("colorCode")
+	drawOGAvatar(baseImg, colorCode)
+	drawOGLabel(baseImg)
+
+	if err := png.Encode(w, baseImg); err != nil {
+		log.Fatalf("画像エンコードエラー: %v", err)
+	}
+}
+
+func drawOGAvatar(baseImg *image.RGBA, colorCode string) {
+	var cMap syumaigen.ColorMap
+	if colorCode != "" {
+		cMap = syumaigen.GenerateColorMapByColorCode(colorCode)
+	} else {
+		cMap = syumaigen.DefaultColorMap
+	}
+	syumaiImg, _ := syumaigen.GenerateImage(
+		syumaigen.Pattern,
+		cMap,
+		20,
+	)
+	baseImgBounds := baseImg.Bounds()
+	syumaiImgBounds := syumaiImg.Bounds()
+	pos := image.Point{
+		X: baseImgBounds.Dx()/2 - syumaiImgBounds.Dx()/2,
+		Y: baseImgBounds.Dy()/2 - syumaiImgBounds.Dy()/2 - 50,
+	}
+	rect := image.Rectangle{Min: pos, Max: pos.Add(syumaiImg.Bounds().Size())}
+	draw.Draw(baseImg, rect, syumaiImg, syumaiImg.Bounds().Min, draw.Over)
+}
+
+func drawOGLabel(baseImg *image.RGBA) {
+	const label = "syum.ai"
+
+	face := basicfont.Face7x13
+	d := &font.Drawer{
+		Dst:  baseImg,
+		Src:  image.NewUniform(color.Black),
+		Face: face,
+	}
+	textWidth := int(d.MeasureString(label) >> 6)
+	textHeight := face.Height
+
+	tmp := image.NewRGBA(image.Rect(0, 0, textWidth, textHeight))
+	d.Dst = tmp
+	d.Dot = fixed.P(0, face.Ascent)
+	d.DrawString(label)
+
+	const scale = 7.5
+	newWidth := int(float64(textWidth) * scale)
+	newHeight := int(float64(textHeight) * scale)
+	scaledText := image.NewRGBA(image.Rect(0, 0, newWidth, newHeight))
+	draw.NearestNeighbor.Scale(scaledText, scaledText.Bounds(), tmp, tmp.Bounds(), draw.Over, nil)
+
+	baseImgBounds := baseImg.Bounds()
+
+	x := baseImgBounds.Dx()/2 - newWidth/2
+	y := baseImgBounds.Dy()/2 + newHeight/2 + 90
+
+	rect := image.Rect(x, y, x+newWidth, y+newHeight)
+	draw.Draw(baseImg, rect, scaledText, image.Point{}, draw.Over)
 }
 
 func imageHandler(w http.ResponseWriter, r *http.Request) {

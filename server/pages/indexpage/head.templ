@@ -1,11 +1,22 @@
 package indexpage
 
-templ Head() {
+templ Head(colorCode string) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>syum.ai</title>
     <link rel="me" href="https://mstdn.jp/@_syumai" />
+    if colorCode != "" {
+      <meta
+        property="og:image"
+        content={"/og?colorCode=" + colorCode } />
+    } else {
+      <meta
+        property="og:image"
+        content="/og" />
+    }
+    <meta property="og:description" content="Profile page of syumai." />
+    <meta property="og:title" content="syum.ai" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <script>
 async function main() {
@@ -13,12 +24,19 @@ async function main() {
   const shareButton = document.getElementById('shareButton');
   const reloadButton = document.getElementById('reloadButton');
 
+  // URLからcolorCodeパラメータを取得する
+  let initialColorCode = new URLSearchParams(window.location.search).get('colorCode');
   let avatarDataUrl = '';
   let sharedUrl;
 
   const setAvatarImage = async () => {
     try {
-      const result = await fetch('/image/random');
+      let url = '/image/random';
+      if (initialColorCode) {
+        url = `/image?code=${initialColorCode}`;
+        initialColorCode = '';
+      }
+      const result = await fetch(url);
       if (avatarDataUrl !== '') {
         URL.revokeObjectURL(avatarDataUrl);
       }
@@ -41,10 +59,11 @@ async function main() {
 
   if (window.navigator.share) {
     shareButton.addEventListener('click', (e) => {
+      colorCode = URL.parse(sharedUrl).searchParams.get('code');
       window.navigator.share({
-        title: '#わたしのシュウマイ',
+        title: 'syum.ai',
         text: '#わたしのシュウマイ',
-        url: sharedUrl,
+        url: `https://syum.ai?colorCode=${colorCode}`,
       });
     })
   }

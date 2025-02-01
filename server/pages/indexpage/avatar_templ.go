@@ -31,7 +31,7 @@ func Avatar() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-full flex justify-center pt-5\"><div class=\"flex flex-col items-center space-y-2\"><img src=\"/image/random\" id=\"avatar\" class=\"w-48 h-48 -mb-1\"><div class=\"text-2xl py-1 font-mono\">syumai</div></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-full flex justify-center pt-5\"><div class=\"flex flex-col items-center space-y-2\"><img src=\"/image\" id=\"avatar\" class=\"w-48 h-48 -mb-1\"><div class=\"text-2xl py-1 font-mono\">syumai</div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
