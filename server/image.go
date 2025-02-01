@@ -7,9 +7,16 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"regexp"
 
 	"github.com/syumai/syumaigen"
 )
+
+var colorCodeRegex = regexp.MustCompile(`^(?:[0-9a-fA-F]{3}){1,2}$`)
+
+func isValidColorCode(code string) bool {
+	return colorCodeRegex.MatchString(code)
+}
 
 func writePNG(w http.ResponseWriter, cMap syumaigen.ColorMap) {
 	w.Header().Set("Content-Type", "image/png")

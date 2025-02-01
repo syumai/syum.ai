@@ -59,7 +59,7 @@ func ogImageHandler(w http.ResponseWriter, r *http.Request) {
 
 	colorCode := r.URL.Query().Get("colorCode")
 	drawOGAvatar(baseImg, colorCode)
-	drawOGLabel(baseImg)
+	drawOGLabel(baseImg, colorCode)
 
 	w.Header().Set("Content-Type", "image/png")
 	if err := png.Encode(w, baseImg); err != nil {
@@ -69,7 +69,7 @@ func ogImageHandler(w http.ResponseWriter, r *http.Request) {
 
 func drawOGAvatar(baseImg *image.RGBA, colorCode string) {
 	var cMap syumaigen.ColorMap
-	if colorCode != "" {
+	if isValidColorCode(colorCode) {
 		cMap = syumaigen.GenerateColorMapByColorCode(colorCode)
 	} else {
 		cMap = syumaigen.DefaultColorMap
@@ -89,8 +89,11 @@ func drawOGAvatar(baseImg *image.RGBA, colorCode string) {
 	draw.Draw(baseImg, rect, syumaiImg, syumaiImg.Bounds().Min, draw.Over)
 }
 
-func drawOGLabel(baseImg *image.RGBA) {
-	const label = "syum.ai"
+func drawOGLabel(baseImg *image.RGBA, colorCode string) {
+	label := "syum.ai"
+	if isValidColorCode(colorCode) {
+		label = "#" + strings.ToUpper(colorCode)
+	}
 
 	face := basicfont.Face7x13
 	d := &font.Drawer{
@@ -115,7 +118,7 @@ func drawOGLabel(baseImg *image.RGBA) {
 	baseImgBounds := baseImg.Bounds()
 
 	x := baseImgBounds.Dx()/2 - newWidth/2
-	y := baseImgBounds.Dy()/2 + newHeight/2 + 90
+	y := baseImgBounds.Dy()/2 + newHeight/2 + 100
 
 	rect := image.Rect(x, y, x+newWidth, y+newHeight)
 	draw.Draw(baseImg, rect, scaledText, image.Point{}, draw.Over)
@@ -124,7 +127,7 @@ func drawOGLabel(baseImg *image.RGBA) {
 func imageHandler(w http.ResponseWriter, r *http.Request) {
 	var cMap syumaigen.ColorMap
 	code := r.URL.Query().Get("code")
-	if code != "" {
+	if isValidColorCode(code) {
 		cMap = syumaigen.GenerateColorMapByColorCode(code)
 	} else {
 		cMap = syumaigen.DefaultColorMap
