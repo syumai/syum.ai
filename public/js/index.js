@@ -3,7 +3,6 @@ async function main() {
   const shareButton = document.getElementById("shareButton");
   const reloadButton = document.getElementById("reloadButton");
 
-  // URLからcolorCodeパラメータを取得する
   let initialColorCode = new URLSearchParams(window.location.search).get(
     "colorCode"
   );
@@ -43,7 +42,7 @@ async function main() {
       colorCode = URL.parse(sharedUrl).searchParams.get("code");
       window.navigator.share({
         title: "syum.ai",
-        text: "#わたしのシュウマイ",
+        text: "ランダムシュウマイで遊んでみよう! #わたしのシュウマイ",
         url: `https://syum.ai?colorCode=${colorCode}`,
       });
     });
