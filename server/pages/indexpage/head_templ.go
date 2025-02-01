@@ -39,9 +39,9 @@ func Head(colorCode string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var2 string
-			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs("/og?colorCode=" + colorCode)
+			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs("https://syum.ai/og?colorCode=" + colorCode)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `server/pages/indexpage/head.templ`, Line: 12, Col: 45}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `server/pages/indexpage/head.templ`, Line: 12, Col: 60}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -52,7 +52,7 @@ func Head(colorCode string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<meta property=\"og:image\" content=\"/og\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<meta property=\"og:image\" content=\"https://syum.ai/og\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

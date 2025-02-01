@@ -9,11 +9,11 @@ templ Head(colorCode string) {
     if colorCode != "" {
       <meta
         property="og:image"
-        content={"/og?colorCode=" + colorCode } />
+        content={"https://syum.ai/og?colorCode=" + colorCode } />
     } else {
       <meta
         property="og:image"
-        content="/og" />
+        content="https://syum.ai/og" />
     }
     <meta property="og:description" content="Profile page of syumai." />
     <meta property="og:title" content="syum.ai" />
