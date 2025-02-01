@@ -1,6 +1,6 @@
 .PHONY: dev
 dev:
-	wrangler dev
+	air .
 
 .PHONY: generate
 generate:

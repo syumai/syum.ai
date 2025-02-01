@@ -3,29 +3,17 @@ package indexpage
 templ Index() {
   <!doctype html>
   <html>
-    @head()
-    <body>
-      <section class="hero is-primary is-small">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">syum.ai</h1>
-          </div>
-        </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          @avatar()
-          @profile()
-          @works()
-          <h2 class="title is-4">Repo</h2>
-          <ul class="content">
-            <li>
-              <a href="https://github.com/syumai/syum.ai">syum.ai</a>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <script src="./js/index.js" defer></script>
+    @Head()
+    <body class="flex flex-col items-center space-y-5">
+      @Avatar()
+      @Profile()
+      @AvatarControls()
+      <a
+        href="https://github.com/syumai/syum.ai"
+        class="text-blue-600 dark:text-blue-500 hover:underline"
+      >
+        github.com/syumai/syum.ai
+      </a>
     </body>
   </html>
 }

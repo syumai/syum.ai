@@ -33,27 +33,27 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = head().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Head().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body><section class=\"hero is-primary is-small\"><div class=\"hero-body\"><div class=\"container\"><h1 class=\"title\">syum.ai</h1></div></div></section><section class=\"section\"><div class=\"container\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body class=\"flex flex-col items-center space-y-5\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = avatar().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Avatar().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = profile().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Profile().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = works().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = AvatarControls().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h2 class=\"title is-4\">Repo</h2><ul class=\"content\"><li><a href=\"https://github.com/syumai/syum.ai\">syum.ai</a></li></ul></div></section><script src=\"./js/index.js\" defer></script></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://github.com/syumai/syum.ai\" class=\"text-blue-600 dark:text-blue-500 hover:underline\">github.com/syumai/syum.ai</a></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

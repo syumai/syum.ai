@@ -1,15 +1,58 @@
 package indexpage
 
-templ head() {
+templ Head() {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>syum.ai</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./css/index.css" />
     <link rel="me" href="https://mstdn.jp/@_syumai" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script>
+async function main() {
+  const avatarEl = document.getElementById('avatar');
+  const shareButton = document.getElementById('shareButton');
+  const reloadButton = document.getElementById('reloadButton');
+
+  let avatarDataUrl = '';
+  let sharedUrl;
+
+  const setAvatarImage = async () => {
+    try {
+      const result = await fetch('/image/random');
+      if (avatarDataUrl !== '') {
+        URL.revokeObjectURL(avatarDataUrl);
+      }
+      avatarDataUrl = URL.createObjectURL(await result.blob());
+      sharedUrl = result.url;
+    } catch (e) {
+      console.error(e);
+      return;
+    }
+    avatarEl.src = avatarDataUrl;
+  };
+
+  avatarEl.addEventListener('load', (e) => {
+    e.target.classList.remove('is-invisible');
+  });
+
+  reloadButton.addEventListener('click', async (e) => {
+    await setAvatarImage();
+  });
+
+  if (window.navigator.share) {
+    shareButton.addEventListener('click', (e) => {
+      window.navigator.share({
+        title: '#わたしのシュウマイ',
+        text: '#わたしのシュウマイ',
+        url: sharedUrl,
+      });
+    })
+  }
+
+  await setAvatarImage();
+}
+
+window.addEventListener('DOMContentLoaded', main);
+    </script>
   </head>
 }
