@@ -47,7 +47,7 @@ func Profile() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-6 h-6\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4\"></path><path d=\"M9 18c-4.51 2-5-2-7-2\"></path></svg>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-5 h-5\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4\"></path><path d=\"M9 18c-4.51 2-5-2-7-2\"></path></svg>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -73,7 +73,7 @@ func Profile() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-6 h-6\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"100\" height=\"100\" viewBox=\"0 0 30 30\"><path d=\"M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z\"></path></svg>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-5 h-5\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"100\" height=\"100\" viewBox=\"0 0 30 30\"><path d=\"M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z\"></path></svg>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -99,7 +99,7 @@ func Profile() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-6 h-6\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"100\" height=\"100\" viewBox=\"0 0 24 24\"><path d=\"M21.31,2.331c-2.636,0-6.671,3.82-9.31,7.815C9.361,6.152,5.326,2.331,2.69,2.331C1,2.331,1,4.098,1,4.947\tc0,0.551,0.335,4.912,0.577,5.81c0.435,1.622,1.504,3.13,3.108,3.948c-0.552,0.452-0.949,0.984-1.149,1.586\tc-0.227,0.68-0.388,2.047,1.08,3.562c1.174,1.211,2.256,1.8,3.31,1.8c1.703,0,3.166-1.91,4.075-3.458\tc0.909,1.548,2.372,3.458,4.075,3.458c1.054,0,2.136-0.589,3.31-1.8c1.468-1.514,1.306-2.881,1.08-3.562\tc-0.201-0.602-0.598-1.134-1.149-1.586c1.604-0.818,2.674-2.326,3.108-3.948C22.665,9.859,23,5.499,23,4.947\tC23,4.098,23,2.331,21.31,2.331z M20.492,10.239c-0.44,1.64-1.885,3.376-4.492,3.044v2.084c1.613,0.36,2.395,1.042,2.567,1.558\tc0.185,0.553-0.234,1.141-0.619,1.537c-1.004,1.037-1.605,1.191-1.874,1.191c-0.763,0-2.114-1.852-2.972-3.653h-1.087L12,16.007\tL11.985,16h-1.087c-0.859,1.801-2.209,3.653-2.972,3.653c-0.269,0-0.869-0.155-1.874-1.191c-0.384-0.396-0.803-0.984-0.619-1.537\tC5.605,16.409,6.387,15.727,8,15.367v-2.084c-2.607,0.332-4.052-1.404-4.492-3.044C3.354,9.666,3,5.613,3,4.947\tc0-0.26,0.006-0.445,0.016-0.577C4.794,4.762,8.42,8.073,10.809,12h1.113h0.156h1.113c2.389-3.927,6.014-7.238,7.793-7.63\tC20.994,4.502,21,4.688,21,4.947C21,5.613,20.646,9.666,20.492,10.239z\"></path></svg>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-5 h-5\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"100\" height=\"100\" viewBox=\"0 0 24 24\"><path d=\"M21.31,2.331c-2.636,0-6.671,3.82-9.31,7.815C9.361,6.152,5.326,2.331,2.69,2.331C1,2.331,1,4.098,1,4.947\tc0,0.551,0.335,4.912,0.577,5.81c0.435,1.622,1.504,3.13,3.108,3.948c-0.552,0.452-0.949,0.984-1.149,1.586\tc-0.227,0.68-0.388,2.047,1.08,3.562c1.174,1.211,2.256,1.8,3.31,1.8c1.703,0,3.166-1.91,4.075-3.458\tc0.909,1.548,2.372,3.458,4.075,3.458c1.054,0,2.136-0.589,3.31-1.8c1.468-1.514,1.306-2.881,1.08-3.562\tc-0.201-0.602-0.598-1.134-1.149-1.586c1.604-0.818,2.674-2.326,3.108-3.948C22.665,9.859,23,5.499,23,4.947\tC23,4.098,23,2.331,21.31,2.331z M20.492,10.239c-0.44,1.64-1.885,3.376-4.492,3.044v2.084c1.613,0.36,2.395,1.042,2.567,1.558\tc0.185,0.553-0.234,1.141-0.619,1.537c-1.004,1.037-1.605,1.191-1.874,1.191c-0.763,0-2.114-1.852-2.972-3.653h-1.087L12,16.007\tL11.985,16h-1.087c-0.859,1.801-2.209,3.653-2.972,3.653c-0.269,0-0.869-0.155-1.874-1.191c-0.384-0.396-0.803-0.984-0.619-1.537\tC5.605,16.409,6.387,15.727,8,15.367v-2.084c-2.607,0.332-4.052-1.404-4.492-3.044C3.354,9.666,3,5.613,3,4.947\tc0-0.26,0.006-0.445,0.016-0.577C4.794,4.762,8.42,8.073,10.809,12h1.113h0.156h1.113c2.389-3.927,6.014-7.238,7.793-7.63\tC20.994,4.502,21,4.688,21,4.947C21,5.613,20.646,9.666,20.492,10.239z\"></path></svg>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -125,7 +125,7 @@ func Profile() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-6 h-6\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17\"></path><path d=\"m10 15 5-3-5-3z\"></path></svg>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-5 h-5\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17\"></path><path d=\"m10 15 5-3-5-3z\"></path></svg>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -151,13 +151,39 @@ func Profile() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-6 h-6\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 88.3 88.3\" style=\"enable-background:new 0 0 88.3 88.3;\" xml:space=\"preserve\"><g fill=\"currentColor\"><path class=\"st0\" d=\"M3.9,83.3h17c0.9,0,1.7-0.5,2.2-1.2L69.9,5.2c0.6-1-0.1-2.2-1.3-2.2H52.5c-0.8,0-1.5,0.4-1.9,1.1L3.1,81.9\n              C2.8,82.5,3.2,83.3,3.9,83.3z\"></path> <path class=\"st0\" d=\"M62.5,82.1l22.1-35.5c0.7-1.1-0.1-2.5-1.4-2.5h-16c-0.6,0-1.2,0.3-1.5,0.8L43,81.2c-0.6,0.9,0.1,2.1,1.2,2.1\n              h16.3C61.3,83.3,62.1,82.9,62.5,82.1z\"></path></g></svg>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-5 h-5\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 88.3 88.3\" style=\"enable-background:new 0 0 88.3 88.3;\" xml:space=\"preserve\"><g fill=\"currentColor\"><path class=\"st0\" d=\"M3.9,83.3h17c0.9,0,1.7-0.5,2.2-1.2L69.9,5.2c0.6-1-0.1-2.2-1.3-2.2H52.5c-0.8,0-1.5,0.4-1.9,1.1L3.1,81.9\n              C2.8,82.5,3.2,83.3,3.9,83.3z\"></path> <path class=\"st0\" d=\"M62.5,82.1l22.1-35.5c0.7-1.1-0.1-2.5-1.4-2.5h-16c-0.6,0-1.2,0.3-1.5,0.8L43,81.2c-0.6,0.9,0.1,2.1,1.2,2.1\n              h16.3C61.3,83.3,62.1,82.9,62.5,82.1z\"></path></g></svg>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return templ_7745c5c3_Err
 		})
 		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://zenn.dev/syumai")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</li><li>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Var7 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg class=\"w-5 h-5\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\" viewBox=\"0 0 100 100\"><path fill=\"#333\" d=\"M50.1 100.2C22.5 100.2 0 77.7 0 50.1S22.5 0 50.1 0s50.1 22.5 50.1 50.1c-.1 27.6-22.5 50.1-50.1 50.1zm0-93.8C26 6.4 6.4 26 6.4 50.1S26 93.8 50.1 93.8s43.7-19.6 43.7-43.7S74.2 6.4 50.1 6.4z\"></path><path fill=\"#333\" d=\"M55.9 25.3c-2.4-5-3.9-9.8-4.7-12.6v35.5c1.2.5 2.1 1.6 2.1 3 0 1.8-1.5 3.3-3.3 3.3-1.8 0-3.3-1.5-3.3-3.3 0-1.5 1-2.7 2.3-3.1V12.7c-.8 2.8-2.2 7.6-4.7 12.6-3.8 7.8-8.6 14.6-8.6 14.6l3.1 41.8s2.9 3.2 11.3 3.2 11.3-3.2 11.3-3.2l3.1-41.8s-4.8-6.8-8.6-14.6z\"></path></svg>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return templ_7745c5c3_Err
+		})
+		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://blog.syum.ai")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
