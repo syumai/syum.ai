@@ -1,6 +1,6 @@
 .PHONY: dev
 dev:
-	air .
+	go tool air .
 
 .PHONY: generate
 generate:
