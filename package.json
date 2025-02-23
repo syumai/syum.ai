@@ -7,5 +7,8 @@
     "deploy": "wrangler deploy",
     "watch": "go tool templ generate --watch",
     "generate": "go tool templ generate"
+  },
+  "devDependencies": {
+    "wrangler": "^3.109.2"
   }
 }
