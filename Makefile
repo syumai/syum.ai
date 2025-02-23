@@ -4,11 +4,11 @@ dev:
 
 .PHONY: generate
 generate:
-	templ generate
+	go tool templ generate
 
 .PHONY: watch
 watch:
-	templ generate --watch
+	go tool templ generate --watch
 
 .PHONY: build
 build:
@@ -19,6 +19,3 @@ build:
 deploy:
 	wrangler deploy
 
-.PHONY: install-tools
-install-tools:
-	go install github.com/a-h/templ/cmd/templ@latest
