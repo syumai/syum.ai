@@ -2,11 +2,11 @@
   "name": "@syumai/syum.ai",
   "private": true,
   "scripts": {
-    "dev": "go tool air .",
+    "dev": "air .",
     "build": "go run github.com/syumai/workers/cmd/workers-assets-gen && tinygo build -o ./build/app.wasm -target wasm -panic=trap -no-debug -gc=leaking -opt=2 ./...",
     "deploy": "wrangler deploy",
-    "watch": "go tool templ generate --watch",
-    "generate": "go tool templ generate"
+    "watch": "templ generate --watch",
+    "generate": "templ generate"
   },
   "devDependencies": {
     "wrangler": "^3.109.2"
