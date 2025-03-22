@@ -9,6 +9,16 @@
     "generate": "templ generate"
   },
   "devDependencies": {
-    "wrangler": "^3.109.2"
+    "wrangler": "^4.3.0"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ],
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
   }
 }
