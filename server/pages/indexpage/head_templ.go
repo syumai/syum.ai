@@ -98,7 +98,7 @@ func Head(colorCode string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\"><meta property=\"og:title\" content=\"syum.ai\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:locale\" content=\"en\"><meta property=\"og:image:type\" content=\"image/png\"><meta property=\"og:image:width\" content=\"1200\"><meta property=\"og:image:height\" content=\"630\"><meta property=\"og:image:alt\" content=\"An avatar image of syumai\"><meta property=\"og:image:site_name\" content=\"syum.ai\"><script src=\"https://unpkg.com/@tailwindcss/browser@4\"></script></head>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\"><meta property=\"og:title\" content=\"syum.ai\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:locale\" content=\"en\"><meta property=\"og:image:type\" content=\"image/png\"><meta property=\"og:image:width\" content=\"1200\"><meta property=\"og:image:height\" content=\"630\"><meta property=\"og:image:alt\" content=\"An avatar image of syumai\"><meta property=\"og:image:site_name\" content=\"syum.ai\"><script src=\"https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4\"></script></head>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

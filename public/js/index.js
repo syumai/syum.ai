@@ -3,25 +3,18 @@ async function main() {
   const shareButton = document.getElementById("shareButton");
   const reloadButton = document.getElementById("reloadButton");
 
-  let initialColorCode = new URLSearchParams(window.location.search).get(
-    "colorCode"
-  );
   let avatarDataUrl = "";
-  let sharedUrl;
+  let colorCode = avatarEl.dataset.initialColorCode;
 
   const setAvatarImage = async () => {
     try {
       let url = "/image/random";
-      if (initialColorCode) {
-        url = `/image?code=${initialColorCode}`;
-        initialColorCode = "";
-      }
       const result = await fetch(url);
       if (avatarDataUrl !== "") {
         URL.revokeObjectURL(avatarDataUrl);
       }
       avatarDataUrl = URL.createObjectURL(await result.blob());
-      sharedUrl = result.url;
+      colorCode = URL.parse(result.url).searchParams.get("code");
     } catch (e) {
       console.error(e);
       return;
@@ -39,7 +32,6 @@ async function main() {
 
   if (window.navigator.share) {
     shareButton.addEventListener("click", (e) => {
-      colorCode = URL.parse(sharedUrl).searchParams.get("code");
       window.navigator.share({
         title: "syum.ai",
         text: "ランダムシュウマイで遊んでみよう! #わたしのシュウマイ",
@@ -47,8 +39,6 @@ async function main() {
       });
     });
   }
-
-  await setAvatarImage();
 }
 
 window.addEventListener("DOMContentLoaded", main);
