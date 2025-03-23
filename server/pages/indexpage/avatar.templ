@@ -2,7 +2,8 @@ package indexpage
 
 import "github.com/syumai/syum.ai/server/components"
 
-templ Avatar(colorCode string) {
+templ Avatar(initialColorCode, colorCode string) {
+  {{ if colorCode == "" { colorCode = initialColorCode } }}
   <div class="w-full flex justify-center pt-5">
     <div class="flex flex-col items-center space-y-2">
       <img src={"/image?code=" + colorCode} id="avatar" class="w-48 h-48 -mb-1" data-initial-color-code={colorCode} />

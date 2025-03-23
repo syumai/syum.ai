@@ -1,11 +1,11 @@
 package indexpage
 
-templ Index(colorCode string) {
+templ Index(initialColorCode, colorCode string) {
   <!doctype html>
   <html>
     @Head(colorCode)
     <body class="flex flex-col items-center space-y-5">
-      @Avatar(colorCode)
+      @Avatar(initialColorCode, colorCode)
       @Profile()
       @AvatarControls()
       <a

@@ -34,10 +34,8 @@ func NewHandler() http.Handler {
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	colorCode := r.URL.Query().Get("colorCode")
-	if colorCode == "" {
-		colorCode = generateRandomColorCode()
-	}
-	indexpage.Index(colorCode).Render(r.Context(), w)
+	initialColorCode := generateRandomColorCode()
+	indexpage.Index(initialColorCode, colorCode).Render(r.Context(), w)
 }
 
 func robotsHandler(w http.ResponseWriter, r *http.Request) {
