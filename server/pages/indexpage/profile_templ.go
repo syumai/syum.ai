@@ -53,7 +53,7 @@ func Profile() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://github.com/syumai")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://github.com/syumai"), "GitHub").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -79,7 +79,7 @@ func Profile() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://x.com/__syumai")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://x.com/__syumai"), "X (Formerly Twitter)").Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -105,7 +105,7 @@ func Profile() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://bsky.app/profile/syum.ai")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://bsky.app/profile/syum.ai"), "Bluesky").Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -131,7 +131,7 @@ func Profile() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://youtube.com/@_syumai")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://youtube.com/@_syumai"), "YouTube").Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -157,7 +157,7 @@ func Profile() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://zenn.dev/syumai")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://zenn.dev/syumai"), "Zenn").Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -183,7 +183,7 @@ func Profile() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://blog.syum.ai")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.LinkButton(templ.URL("https://blog.syum.ai"), "Blog").Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
