@@ -8,7 +8,7 @@ async function main() {
 
   const setAvatarImage = async () => {
     try {
-      let url = "/image/random";
+      const url = "/image/random";
       const result = await fetch(url);
       if (avatarDataUrl !== "") {
         URL.revokeObjectURL(avatarDataUrl);
@@ -20,6 +20,8 @@ async function main() {
       return;
     }
     avatarEl.src = avatarDataUrl;
+    // support only 200px image for shuffle button.
+    avatarEl.srcset = "";
   };
 
   avatarEl.addEventListener("load", (e) => {
