@@ -4,16 +4,20 @@ templ Index(initialColorCode, colorCode string) {
   <!doctype html>
   <html lang="en">
     @Head(colorCode)
-    <body class="flex flex-col items-center space-y-5">
-      @Avatar(initialColorCode, colorCode)
-      @Profile()
-      @AvatarControls()
-      <a
-        href="https://github.com/syumai/syum.ai"
-        class="text-blue-600 dark:text-blue-500 hover:underline"
-      >
-        github.com/syumai/syum.ai
-      </a>
+    <body class="flex flex-col items-center gap-y-5">
+      <main class="flex flex-col items-center gap-y-5">
+        @Avatar(initialColorCode, colorCode)
+        @Profile()
+        @AvatarControls()
+      </main>
+      <footer>
+        <a
+          href="https://github.com/syumai/syum.ai"
+          class="text-blue-600 dark:text-blue-500 hover:underline"
+        >
+          github.com/syumai/syum.ai
+        </a>
+      </footer>
       <script src="/js/index.js" defer></script>
     </body>
   </html>
