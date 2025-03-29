@@ -6,7 +6,13 @@ templ Avatar(initialColorCode, colorCode string) {
   {{ if colorCode == "" { colorCode = initialColorCode } }}
   <div class="w-full flex justify-center pt-5">
     <div class="flex flex-col items-center space-y-2">
-      <img src={"/image?code=" + colorCode} id="avatar" class="w-48 h-48 -mb-1" data-initial-color-code={colorCode} />
+      <img
+        src={"/image?code=" + colorCode}
+        id="avatar"
+        class="w-48 h-48 -mb-1"
+        data-initial-color-code={colorCode}
+        alt="avatar image of syumai with randomized color"
+      />
       <div class="text-2xl py-1 font-mono">
         syumai
       </div>
