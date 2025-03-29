@@ -111,7 +111,7 @@ func AvatarControls() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.Button("reloadButton").Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Button("reloadButton", "Shuffle Color").Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -133,7 +133,7 @@ func AvatarControls() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.Button("shareButton").Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Button("shareButton", "Share").Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
