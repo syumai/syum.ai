@@ -1,4 +1,5 @@
 build
 node_modules
-.wrangler
+.spin
 tmp
+.spin-aka/

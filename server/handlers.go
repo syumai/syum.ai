@@ -28,12 +28,15 @@ func NewHandler() http.Handler {
 	mux.HandleFunc("/image/random", randomImageHandler)
 	mux.HandleFunc("/favicon.ico", cachedImageHandler)
 	mux.HandleFunc("/robots.txt", robotsHandler)
-	mux.HandleFunc("/{$}", indexHandler)
-	mux.HandleFunc("/", assetsHandler)
+	mux.HandleFunc("/", indexHandler)
 	return mux
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		assetsHandler.ServeHTTP(w, r)
+		return
+	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.Header().Set("Content-Security-Policy", "default-src 'self'; style-src 'unsafe-inline'; img-src 'self' blob:;")
 	w.Header().Set("Cross-Origin-Opener-Policy", "same-origin")

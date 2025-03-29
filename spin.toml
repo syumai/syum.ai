@@ -1,0 +1,22 @@
+spin_manifest_version = 2
+
+[application]
+name = "syum-ai"
+version = "0.1.0"
+authors = ["syumai <syumai@gmail.com>"]
+description = ""
+
+[[trigger.http]]
+route = "/..."
+component = "syum-ai"
+
+[component.syum-ai]
+source = "build/main.wasm"
+allowed_outbound_hosts = []
+[component.syum-ai.build]
+command = [
+  "pnpm exec tailwindcss -o ./server/pages/indexpage/style.css --minify",
+  "go tool templ generate",
+  "tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o build/main.wasm ."
+]
+watch = ["**/*.go", "go.mod"]

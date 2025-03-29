@@ -1,10 +1,10 @@
 package main
 
 import (
+	spinhttp "github.com/fermyon/spin/sdk/go/v2/http"
 	"github.com/syumai/syum.ai/server"
-	"github.com/syumai/workers"
 )
 
-func main() {
-	workers.Serve(server.NewHandler())
+func init() {
+	spinhttp.Handle(server.NewHandler().ServeHTTP)
 }

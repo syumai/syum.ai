@@ -3,26 +3,21 @@
 package server
 
 import (
+	"embed"
 	"io/fs"
 	"net/http"
-	"os"
 )
 
 var (
-	assetsFS          fs.FS
-	assetsHandlerBase http.Handler
+	//go:embed static
+	assetsFS      embed.FS
+	assetsHandler http.Handler
 )
 
 func init() {
-	assetsRoot, err := os.OpenRoot("./public")
+	f, err := fs.Sub(assetsFS, "static")
 	if err != nil {
 		panic(err)
 	}
-	assetsFS = assetsRoot.FS()
-	assetsHandlerBase = http.FileServerFS(assetsFS)
-}
-
-// assetsHandler serves static assets for dev environment.
-func assetsHandler(w http.ResponseWriter, r *http.Request) {
-	assetsHandlerBase.ServeHTTP(w, r)
+	assetsHandler = http.FileServer(http.FS(f))
 }
