@@ -32,7 +32,9 @@ func writePNG(w http.ResponseWriter, cMap syumaigen.ColorMap, scale int) {
 		return
 	}
 	var buf bytes.Buffer
-	err = png.Encode(&buf, img)
+	var e png.Encoder
+	e.CompressionLevel = png.BestSpeed
+	err = e.Encode(&buf, img)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		w.WriteHeader(http.StatusInternalServerError)
