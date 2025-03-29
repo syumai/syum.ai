@@ -18,12 +18,12 @@ func isValidColorCode(code string) bool {
 	return colorCodeRegex.MatchString(code)
 }
 
-func writePNG(w http.ResponseWriter, cMap syumaigen.ColorMap) {
+func writePNG(w http.ResponseWriter, cMap syumaigen.ColorMap, scale int) {
 	w.Header().Set("Content-Type", "image/png")
 	img, err := syumaigen.GenerateImage(
 		syumaigen.Pattern,
 		cMap,
-		10,
+		scale,
 	)
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")

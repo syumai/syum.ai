@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strconv"
 	"strings"
 
 	"github.com/syumai/syum.ai/server/pages/indexpage"
@@ -139,7 +140,17 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 		writeSVG(w, cMap)
 		return
 	}
-	writePNG(w, cMap)
+	scale := 10
+	scaleStr := r.URL.Query().Get("scale")
+	if scaleStr != "" {
+		var err error
+		scale, err = strconv.Atoi(scaleStr)
+		if err != nil {
+			http.Error(w, "Invalid scale", http.StatusBadRequest)
+			return
+		}
+	}
+	writePNG(w, cMap, scale)
 }
 
 func randomImageHandler(w http.ResponseWriter, r *http.Request) {
