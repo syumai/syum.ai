@@ -1,6 +1,13 @@
 package indexpage
 
+import (
+  _ "embed"
+)
+
 const description = "The profile page of syumai, a web application developer in Tokyo, Japan."
+
+//go:embed style.css
+var style string
 
 templ Head(colorCode string) {
   <head>
@@ -27,6 +34,6 @@ templ Head(colorCode string) {
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="An avatar image of syumai" />
     <meta property="og:image:site_name" content="syum.ai" />
-    <link href="./css/style.css" rel="stylesheet">
+    @templ.Raw("<style type=\"text/css\">" + style + "</style>")
   </head>
 }
