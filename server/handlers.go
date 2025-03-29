@@ -27,7 +27,8 @@ func NewHandler() http.Handler {
 	mux.HandleFunc("/image/random", randomImageHandler)
 	mux.HandleFunc("/favicon.ico", cachedImageHandler)
 	mux.HandleFunc("/robots.txt", robotsHandler)
-	mux.HandleFunc("/", indexHandler)
+	mux.HandleFunc("/{$}", indexHandler)
+	mux.HandleFunc("/", assetsHandler)
 	return mux
 }
 
