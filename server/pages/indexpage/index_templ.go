@@ -53,7 +53,7 @@ func Index(initialColorCode, colorCode string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<a href=\"https://github.com/syumai/syum.ai\" class=\"text-blue-600 dark:text-blue-500 hover:underline\">github.com/syumai/syum.ai</a><script src=\"/js/index.js\" async></script></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<a href=\"https://github.com/syumai/syum.ai\" class=\"text-blue-600 dark:text-blue-500 hover:underline\">github.com/syumai/syum.ai</a><script src=\"/js/index.js\" defer></script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
