@@ -6,7 +6,7 @@ require (
 	github.com/a-h/templ v0.3.850
 	github.com/lucasb-eyer/go-colorful v1.2.0
 	github.com/syumai/syumaigen v0.5.0
-	github.com/syumai/workers v0.28.1
+	github.com/syumai/workers v0.29.0
 	golang.org/x/image v0.23.0
 )
 
