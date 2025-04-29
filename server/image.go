@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"regexp"
+	"strconv"
 
 	"github.com/syumai/syumaigen"
 )
@@ -41,6 +42,7 @@ func writePNG(w http.ResponseWriter, cMap syumaigen.ColorMap, scale int) {
 		fmt.Fprintf(w, "Internal Server Error")
 		return
 	}
+	w.Header().Set("Content-Length", strconv.Itoa(buf.Len()))
 	w.WriteHeader(http.StatusOK)
 	if _, err := io.Copy(w, &buf); err != nil {
 		log.Fatal(err)

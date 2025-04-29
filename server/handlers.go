@@ -41,7 +41,12 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload")
 	colorCode := r.URL.Query().Get("colorCode")
 	initialColorCode := generateRandomColorCode()
-	indexpage.Index(initialColorCode, colorCode).Render(r.Context(), w)
+	var buf bytes.Buffer
+	indexpage.Index(initialColorCode, colorCode).Render(r.Context(), &buf)
+	w.Header().Set("Content-Length", strconv.Itoa(buf.Len()))
+	if _, err := io.Copy(w, &buf); err != nil {
+		log.Fatal(err)
+	}
 }
 
 func robotsHandler(w http.ResponseWriter, r *http.Request) {
@@ -79,6 +84,7 @@ func ogImageHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Internal Server Error")
 		return
 	}
+	w.Header().Set("Content-Length", strconv.Itoa(buf.Len()))
 	if _, err := io.Copy(w, &buf); err != nil {
 		log.Fatal(err)
 	}
