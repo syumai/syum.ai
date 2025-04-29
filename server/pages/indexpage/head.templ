@@ -14,8 +14,8 @@ templ Head(colorCode string) {
     <title>syum.ai</title>
     <link rel="me" href="https://mstdn.jp/@_syumai" />
     if colorCode != "" {
-      <meta property="og:image" content={"https://syum.ai/og?colorCode=" + colorCode} />
-      <meta name="twitter:image" content={"https://syum.ai/og?colorCode=" + colorCode} />
+      <meta property="og:image" content={"https://syum.ai/og/" + colorCode} />
+      <meta name="twitter:image" content={"https://syum.ai/og/" + colorCode} />
     } else {
       <meta property="og:image" content="https://syum.ai/og" />
       <meta name="twitter:image" content="https://syum.ai/og" />

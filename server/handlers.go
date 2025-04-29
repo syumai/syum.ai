@@ -1,6 +1,7 @@
 package server
 
 import (
+	"bytes"
 	"fmt"
 	"image"
 	"image/color"
@@ -68,7 +69,17 @@ func ogImageHandler(w http.ResponseWriter, r *http.Request) {
 	drawOGLabel(baseImg, colorCode)
 
 	w.Header().Set("Content-Type", "image/png")
-	if err := png.Encode(w, baseImg); err != nil {
+	var buf bytes.Buffer
+	var e png.Encoder
+	e.CompressionLevel = png.BestSpeed
+	err := e.Encode(&buf, baseImg)
+	if err != nil {
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "Internal Server Error")
+		return
+	}
+	if _, err := io.Copy(w, &buf); err != nil {
 		log.Fatal(err)
 	}
 }
