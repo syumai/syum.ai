@@ -84,6 +84,7 @@ func ogImageHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Internal Server Error")
 		return
 	}
+	w.Header().Set("Cache-Control", "max-age=864000")
 	w.Header().Set("Content-Length", strconv.Itoa(buf.Len()))
 	if _, err := io.Copy(w, &buf); err != nil {
 		log.Fatal(err)
