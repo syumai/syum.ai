@@ -1,13 +1,13 @@
 module github.com/syumai/syum.ai
 
-go 1.24.0
+go 1.25.0
 
 require (
 	github.com/a-h/templ v0.3.857
 	github.com/lucasb-eyer/go-colorful v1.2.0
 	github.com/syumai/syumaigen v0.5.0
 	github.com/syumai/workers v0.32.0
-	golang.org/x/image v0.26.0
+	golang.org/x/image v0.38.0
 )
 
 require (
