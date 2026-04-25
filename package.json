@@ -10,9 +10,9 @@
     "generate": "tailwindcss -o ./server/pages/indexpage/style.css --minify && go tool templ generate"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.4",
-    "tailwindcss": "^4.1.4",
-    "wrangler": "^4.59.1"
+    "@tailwindcss/cli": "^4.2.4",
+    "tailwindcss": "^4.2.4",
+    "wrangler": "^4.85.0"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [
