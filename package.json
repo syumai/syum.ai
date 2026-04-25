@@ -13,15 +13,5 @@
     "@tailwindcss/cli": "^4.2.4",
     "tailwindcss": "^4.2.4",
     "wrangler": "^4.85.0"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "esbuild",
-      "workerd"
-    ],
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "workerd"
-    ]
   }
 }
