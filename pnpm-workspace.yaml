@@ -1,6 +1,0 @@
-allowBuilds:
-  '@parcel/watcher': true
-  esbuild: true
-  sharp: true
-  workerd: true
-minimumReleaseAge: 4320

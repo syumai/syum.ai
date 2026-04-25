@@ -1,0 +1,6 @@
+[tools]
+aube = "latest"
+node = "24"
+
+[settings]
+lockfile = true
