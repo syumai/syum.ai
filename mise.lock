@@ -34,6 +34,38 @@ checksum = "sha256:41f7d31e35bf7e21d32221ad74fb535bca3fc2fde9da80aee6061cc061f5e
 url = "https://github.com/endevco/aube/releases/download/v1.1.0/aube-v1.1.0-x86_64-pc-windows-msvc.zip"
 url_api = "https://api.github.com/repos/endevco/aube/releases/assets/404658938"
 
+[[tools.go]]
+version = "1.25.9"
+backend = "core:go"
+
+[tools.go."platforms.linux-arm64"]
+checksum = "sha256:ec342e7389b7f489564ed5463c63b16cf8040023dabc7861256677165a8c0e2b"
+url = "https://dl.google.com/go/go1.25.9.linux-arm64.tar.gz"
+
+[tools.go."platforms.linux-arm64-musl"]
+checksum = "sha256:ec342e7389b7f489564ed5463c63b16cf8040023dabc7861256677165a8c0e2b"
+url = "https://dl.google.com/go/go1.25.9.linux-arm64.tar.gz"
+
+[tools.go."platforms.linux-x64"]
+checksum = "sha256:00859d7bd6defe8bf84d9db9e57b9a4467b2887c18cd93ae7460e713db774bc1"
+url = "https://dl.google.com/go/go1.25.9.linux-amd64.tar.gz"
+
+[tools.go."platforms.linux-x64-musl"]
+checksum = "sha256:00859d7bd6defe8bf84d9db9e57b9a4467b2887c18cd93ae7460e713db774bc1"
+url = "https://dl.google.com/go/go1.25.9.linux-amd64.tar.gz"
+
+[tools.go."platforms.macos-arm64"]
+checksum = "sha256:9528be7329b9770631a6bd09ca2f3a73ed7332bec01d87435e75e92d8f130363"
+url = "https://dl.google.com/go/go1.25.9.darwin-arm64.tar.gz"
+
+[tools.go."platforms.macos-x64"]
+checksum = "sha256:92cb78fba4796e218c1accb0ea0a214ef2094c382049a244ad6505505d015fbe"
+url = "https://dl.google.com/go/go1.25.9.darwin-amd64.tar.gz"
+
+[tools.go."platforms.windows-x64"]
+checksum = "sha256:a7a710e225467b34e9e09fb432b829c86c9b2da5821ee5418f7eb2e8ae1a22cc"
+url = "https://dl.google.com/go/go1.25.9.windows-amd64.zip"
+
 [[tools.node]]
 version = "24.15.0"
 backend = "core:node"
@@ -65,3 +97,35 @@ url = "https://nodejs.org/dist/v24.15.0/node-v24.15.0-darwin-x64.tar.gz"
 [tools.node."platforms.windows-x64"]
 checksum = "sha256:cc5149eabd53779ce1e7bdc5401643622d0c7e6800ade18928a767e940bb0e62"
 url = "https://nodejs.org/dist/v24.15.0/node-v24.15.0-win-x64.zip"
+
+[[tools.tinygo]]
+version = "0.40.1"
+backend = "aqua:tinygo-org/tinygo"
+
+[tools.tinygo."platforms.linux-arm64"]
+checksum = "sha256:4720693b333826569d5c1ed746a735c4d1983719c95af5bdd4d9dfeaa755e933"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.40.1/tinygo0.40.1.linux-arm64.tar.gz"
+
+[tools.tinygo."platforms.linux-arm64-musl"]
+checksum = "sha256:4720693b333826569d5c1ed746a735c4d1983719c95af5bdd4d9dfeaa755e933"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.40.1/tinygo0.40.1.linux-arm64.tar.gz"
+
+[tools.tinygo."platforms.linux-x64"]
+checksum = "sha256:064fc0c07f4d71f7369b168c337caa88ef32a6b00b16449cea44790ccadfc2b4"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.40.1/tinygo0.40.1.linux-amd64.tar.gz"
+
+[tools.tinygo."platforms.linux-x64-musl"]
+checksum = "sha256:064fc0c07f4d71f7369b168c337caa88ef32a6b00b16449cea44790ccadfc2b4"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.40.1/tinygo0.40.1.linux-amd64.tar.gz"
+
+[tools.tinygo."platforms.macos-arm64"]
+checksum = "sha256:a20841a616de3b3403e52e3789cb60c147ab52b3fe6c33b31fdffba0164ae031"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.40.1/tinygo0.40.1.darwin-arm64.tar.gz"
+
+[tools.tinygo."platforms.macos-x64"]
+checksum = "sha256:36c9423a63f9548d142908b06c67e198d878a0fed076b8ec5dbf8a3350a73eb4"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.40.1/tinygo0.40.1.darwin-amd64.tar.gz"
+
+[tools.tinygo."platforms.windows-x64"]
+checksum = "sha256:7f839546df47e52a8ec9031437ae374a1facceb9adb15b94d514624fed9391b4"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.40.1/tinygo0.40.1.windows-amd64.zip"

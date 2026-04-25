@@ -1,6 +1,8 @@
 [tools]
 aube = "latest"
+go = "1.25"
 node = "24"
+tinygo = "0.40.1"
 
 [settings]
 lockfile = true
