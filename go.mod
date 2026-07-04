@@ -7,7 +7,7 @@ require (
 	github.com/lucasb-eyer/go-colorful v1.4.0
 	github.com/syumai/syumaigen v0.5.0
 	github.com/syumai/workers v0.32.0
-	golang.org/x/image v0.39.0
+	golang.org/x/image v0.41.0
 )
 
 require (
