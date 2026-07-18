@@ -24,10 +24,11 @@ import (
 func NewHandler() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/ascii", asciiHandler)
-	mux.HandleFunc("/image", cachedImageHandler)
-	mux.HandleFunc("/og", ogImageHandler)
+	mux.HandleFunc("/image", imageHandler)
 	mux.HandleFunc("/image/random", randomImageHandler)
-	mux.HandleFunc("/favicon.ico", cachedImageHandler)
+	mux.HandleFunc("/image/nocached/random", nocachedRandomImageHandler)
+	mux.HandleFunc("/og", ogImageHandler)
+	mux.HandleFunc("/favicon.ico", imageHandler)
 	mux.HandleFunc("/robots.txt", robotsHandler)
 	mux.HandleFunc("/{$}", indexHandler)
 	mux.HandleFunc("/", assetsHandler)
@@ -157,6 +158,12 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		cMap = syumaigen.DefaultColorMap
 	}
+	nocached := r.URL.Query().Get("nocached") == "true"
+	if nocached {
+		w.Header().Set("Cache-Control", "no-store")
+	} else {
+		w.Header().Set("Cache-Control", "max-age=864000")
+	}
 	imgType := r.URL.Query().Get("type")
 	if imgType == "svg" {
 		writeSVG(w, cMap)
@@ -175,17 +182,28 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	writePNG(w, cMap, scale)
 }
 
-func randomImageHandler(w http.ResponseWriter, r *http.Request) {
+func randomImageHandlerValues(r *http.Request, nocached bool) url.Values {
 	v := url.Values{}
 	v.Set("code", generateRandomColorCode())
 	imgType := r.URL.Query().Get("type")
 	if imgType != "" {
 		v.Set("type", imgType)
 	}
+	if nocached {
+		v.Set("nocached", "true")
+	}
+	return v
+}
+
+func redirectToImageHandler(w http.ResponseWriter, r *http.Request, nocached bool) {
+	v := randomImageHandlerValues(r, nocached)
 	http.Redirect(w, r, fmt.Sprintf("/image?%s", v.Encode()), http.StatusTemporaryRedirect)
 }
 
-func cachedImageHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Cache-Control", "max-age=864000")
-	imageHandler(w, r)
+func nocachedRandomImageHandler(w http.ResponseWriter, r *http.Request) {
+	redirectToImageHandler(w, r, true)
+}
+
+func randomImageHandler(w http.ResponseWriter, r *http.Request) {
+	redirectToImageHandler(w, r, false)
 }
