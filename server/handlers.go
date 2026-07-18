@@ -39,6 +39,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Security-Policy", "default-src 'self'; style-src 'unsafe-inline'; img-src 'self' blob:; script-src 'self' static.cloudflareinsights.com; connect-src 'self' cloudflareinsights.com;")
 	w.Header().Set("Cross-Origin-Opener-Policy", "same-origin")
 	w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload")
+	w.Header().Set("Cache-Control", "no-store")
 	colorCode := r.URL.Query().Get("colorCode")
 	initialColorCode := generateRandomColorCode()
 	var buf bytes.Buffer
