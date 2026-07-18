@@ -20,5 +20,8 @@
   "assets": {
     "directory": "./public",
     "html_handling": "drop-trailing-slash"
+  },
+  "cache": {
+    "enabled": true
   }
 }

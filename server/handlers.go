@@ -24,7 +24,7 @@ import (
 func NewHandler() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/ascii", asciiHandler)
-	mux.HandleFunc("/image", nocacheImageHandler)
+	mux.HandleFunc("/image", cachedImageHandler)
 	mux.HandleFunc("/og", ogImageHandler)
 	mux.HandleFunc("/image/random", randomImageHandler)
 	mux.HandleFunc("/favicon.ico", cachedImageHandler)
@@ -182,11 +182,6 @@ func randomImageHandler(w http.ResponseWriter, r *http.Request) {
 		v.Set("type", imgType)
 	}
 	http.Redirect(w, r, fmt.Sprintf("/image?%s", v.Encode()), http.StatusTemporaryRedirect)
-}
-
-func nocacheImageHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Cache-Control", "no-store,max-age=0")
-	imageHandler(w, r)
 }
 
 func cachedImageHandler(w http.ResponseWriter, r *http.Request) {
