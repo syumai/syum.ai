@@ -47,36 +47,36 @@ url_api = "https://api.github.com/repos/jdx/aube/releases/assets/479769257"
 provenance = "github-attestations"
 
 [[tools.go]]
-version = "1.25.12"
+version = "1.27.1"
 backend = "core:go"
 
 [tools.go."platforms.linux-arm64"]
-checksum = "sha256:8b5884aef89600aef5b0b051fb971f11f49bb996521e911f30f02a66884f7bd2"
-url = "https://dl.google.com/go/go1.25.12.linux-arm64.tar.gz"
+checksum = "sha256:3450b45a3f9ee8568792736a5c5e70a1f2e9b36c35a8f74958c03e51d7d92bec"
+url = "https://dl.google.com/go/go1.27.1.linux-arm64.tar.gz"
 
 [tools.go."platforms.linux-arm64-musl"]
-checksum = "sha256:8b5884aef89600aef5b0b051fb971f11f49bb996521e911f30f02a66884f7bd2"
-url = "https://dl.google.com/go/go1.25.12.linux-arm64.tar.gz"
+checksum = "sha256:3450b45a3f9ee8568792736a5c5e70a1f2e9b36c35a8f74958c03e51d7d92bec"
+url = "https://dl.google.com/go/go1.27.1.linux-arm64.tar.gz"
 
 [tools.go."platforms.linux-x64"]
-checksum = "sha256:234828b7a89e0e303d2556310ee549fbcf253d28de937bac3da13d6294262ac1"
-url = "https://dl.google.com/go/go1.25.12.linux-amd64.tar.gz"
+checksum = "sha256:63d339f0da5ab53635a56f2490a7984dfe12dfcff22ad749f63edaf590168445"
+url = "https://dl.google.com/go/go1.27.1.linux-amd64.tar.gz"
 
 [tools.go."platforms.linux-x64-musl"]
-checksum = "sha256:234828b7a89e0e303d2556310ee549fbcf253d28de937bac3da13d6294262ac1"
-url = "https://dl.google.com/go/go1.25.12.linux-amd64.tar.gz"
+checksum = "sha256:63d339f0da5ab53635a56f2490a7984dfe12dfcff22ad749f63edaf590168445"
+url = "https://dl.google.com/go/go1.27.1.linux-amd64.tar.gz"
 
 [tools.go."platforms.macos-arm64"]
-checksum = "sha256:fa2c88bbcf64bd3b2aef355f026cfec6d3a4a01c132f999c8f8c964eb767164f"
-url = "https://dl.google.com/go/go1.25.12.darwin-arm64.tar.gz"
+checksum = "sha256:ee215d57e0ec269c60cc9ceca68e6bda321ba9ee5afe24f4b0988703c2d87d12"
+url = "https://dl.google.com/go/go1.27.1.darwin-arm64.tar.gz"
 
 [tools.go."platforms.macos-x64"]
-checksum = "sha256:00a2e743b82bccec03c51c4b0f7e46d5fec52184075fd6c5183c3bb39ae9fb00"
-url = "https://dl.google.com/go/go1.25.12.darwin-amd64.tar.gz"
+checksum = "sha256:8f8f52c6649542cf027bbc9b9c68d1ec042f9f34808a40413f0b8b3f66f3caa4"
+url = "https://dl.google.com/go/go1.27.1.darwin-amd64.tar.gz"
 
 [tools.go."platforms.windows-x64"]
-checksum = "sha256:d5dc82da351b00e5eedd04f41356817d674cc4308131f0f638a5b14c5c3af4cb"
-url = "https://dl.google.com/go/go1.25.12.windows-amd64.zip"
+checksum = "sha256:a3911b5e0e1b1053f25ed0675f4c1c6aad1e2bfcf253df2b9be4caabd2edd95d"
+url = "https://dl.google.com/go/go1.27.1.windows-amd64.zip"
 
 [[tools.node]]
 version = "24.18.0"
@@ -111,5 +111,33 @@ checksum = "sha256:0ae68406b42d7725661da979b1403ec9926da205c6770827f33aac9d8f26e
 url = "https://nodejs.org/dist/v24.18.0/node-v24.18.0-win-x64.zip"
 
 [[tools.tinygo]]
-version = "0.40.1"
+version = "0.42.0"
 backend = "aqua:tinygo-org/tinygo"
+
+[tools.tinygo."platforms.linux-arm64"]
+checksum = "sha256:f2f3f863e63728b87772e7306bd6030df6e6c89773a7082eb0122113cf9e453d"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.42.0/tinygo0.42.0.linux-arm64.tar.gz"
+
+[tools.tinygo."platforms.linux-arm64-musl"]
+checksum = "sha256:f2f3f863e63728b87772e7306bd6030df6e6c89773a7082eb0122113cf9e453d"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.42.0/tinygo0.42.0.linux-arm64.tar.gz"
+
+[tools.tinygo."platforms.linux-x64"]
+checksum = "sha256:b87688fa2e19cee7d813cad7fd7dadb71dff3198e47125aba66ba4af5e490438"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.42.0/tinygo0.42.0.linux-amd64.tar.gz"
+
+[tools.tinygo."platforms.linux-x64-musl"]
+checksum = "sha256:b87688fa2e19cee7d813cad7fd7dadb71dff3198e47125aba66ba4af5e490438"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.42.0/tinygo0.42.0.linux-amd64.tar.gz"
+
+[tools.tinygo."platforms.macos-arm64"]
+checksum = "sha256:493da3585e66c5da677a4be39402faf2041b4e45a61eb456e4547eca753a544e"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.42.0/tinygo0.42.0.darwin-arm64.tar.gz"
+
+[tools.tinygo."platforms.macos-x64"]
+checksum = "sha256:ef7b96cf59de5714a7493a696e9db141a85a99459620b00c42cb3bad14be2af2"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.42.0/tinygo0.42.0.darwin-amd64.tar.gz"
+
+[tools.tinygo."platforms.windows-x64"]
+checksum = "sha256:2698c3ade60d536bec71c8bb645350e264000ef59e62223588ba822b51187fc1"
+url = "https://github.com/tinygo-org/tinygo/releases/download/v0.42.0/tinygo0.42.0.windows-amd64.zip"
