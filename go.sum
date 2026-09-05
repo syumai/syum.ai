@@ -40,8 +40,8 @@ github.com/stretchr/testify v1.10.0 h1:Xv5erBjTwe/5IxqUQTdXv5kgmIvbHo3QQyRwhJsOf
 github.com/stretchr/testify v1.10.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 github.com/syumai/syumaigen v0.5.0 h1:AqG8MWghgEUbTOZNmoDdl+UUQiNaPhcqOBXzYO5+DTQ=
 github.com/syumai/syumaigen v0.5.0/go.mod h1:r0j5b9KbTych8Gf3FnTRVr/GK/nPQb10AXgUjQaFB/A=
-github.com/syumai/workers v0.34.0 h1:ECVy1v0cYqZ4vZEyB6bvZaVlYjpm3LDqnYJkztu/BmE=
-github.com/syumai/workers v0.34.0/go.mod h1:ZnqmdiHNBrbxOLrZ/HJ5jzHy6af9cmiNZk10R9NrIEA=
+github.com/syumai/workers-go v0.35.0 h1:Dahzjv6QATyZnnkfk6u7DGXH76zD+sk9+x12D520/yQ=
+github.com/syumai/workers-go v0.35.0/go.mod h1:nGxyOzoikm2rDoGAduCQucbljH9wjhdk+4Rk4leKCBQ=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
